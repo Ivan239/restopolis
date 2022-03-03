@@ -1,0 +1,16 @@
+.header {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__buttons {
+    display: flex;
+}
+
+.header__name {
+    text-decoration: none;
+}

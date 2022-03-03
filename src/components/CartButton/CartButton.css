@@ -1,0 +1,21 @@
+.cart-button {
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 26px;
+    background-color: rgb(24, 24, 24);
+    border-radius: 18px;
+    transition-property: background-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.cart-button:hover {
+    background-color: rgb(42, 42, 42);
+}
+
+.cart-button__text {
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+}

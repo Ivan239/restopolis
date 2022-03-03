@@ -1,0 +1,31 @@
+.delivery__title {
+    text-align: center;
+}
+
+.delivery {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.delivery__cart {
+    min-width: 600px;
+}
+
+.delivery__cartname {
+    text-align: center;
+}
+
+.delivery__submit {
+    background-color: rgb(24, 24, 24);
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    transition-property: background-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.delivery__submit:hover {
+    background-color: rgb(42, 42, 42);
+}

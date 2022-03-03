@@ -1,0 +1,44 @@
+.card {
+    width: 22.5%;
+    height: 340px;
+    margin-top: 28px;
+    cursor: pointer;
+}
+
+.card__image {
+    width: 90%;
+    position: relative;
+    margin-left: calc(22.5% / 4);
+    margin-bottom: 20px;
+    transition-property: margin-bottom, margin-top;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.card:hover .card__image {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.card__big-false {
+    display: none;
+}
+
+.card__big-true {
+    display: block;
+}
+
+.card__button {
+    width: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 36px;
+}
+
+.card__text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}

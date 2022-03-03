@@ -1,0 +1,29 @@
+.footer {
+    width: 100vw;
+    left: calc(-50vw + 50%);
+    position: relative;
+    background-color: rgb(24, 24, 24);
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.footer__element {
+    margin-left: 20px;
+    margin-top: 20px;
+    color: white;
+    margin-right: 20px;
+}
+
+.footer__info {
+    height: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 1280px;
+}
+
+.footer__title {
+    color: white;
+}
