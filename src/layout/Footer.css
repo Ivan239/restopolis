@@ -24,6 +24,19 @@
     width: 1280px;
 }
 
-.footer__title {
+.footer h3 {
+    margin-left: 20px;
     color: white;
+}
+
+.footer__feedback-false {
+    display: none;
+}
+
+.footer__feedback-true {
+    display: block;
+}
+
+#footer__feedback {
+    cursor: pointer;
 }

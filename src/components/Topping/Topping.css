@@ -1,0 +1,38 @@
+.topping-false {
+    cursor: pointer;
+    height: 190px;
+    width: 136px;
+    border-radius: 18px;
+    margin-top: 12px;
+    box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 20px;
+}
+
+.topping-true {
+    cursor: pointer;
+    height: 190px;
+    width: 136px;
+    border-radius: 18px;
+    margin-top: 12px;
+    border: 1px solid rgb(24, 24, 24, 0.6);
+    box-sizing: border-box;
+}
+
+.topping-false .topping__image {
+    width: 112px;
+    height: 112px;
+    padding: 6px 12px 0px 12px;
+}
+
+.topping-true .topping__image {
+    width: 112px;
+    height: 112px;
+    padding: 5px 11px 0px 11px;
+}
+
+.topping__name {
+    text-align: center;
+}
+
+.topping__price {
+    text-align: center;
+}

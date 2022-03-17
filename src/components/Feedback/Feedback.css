@@ -1,0 +1,41 @@
+.feedback {
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 20%);
+    position: fixed;
+    top: calc(-50vw + 50%);
+    left: calc(-50vw + 50%);
+    z-index: 2;
+    cursor: auto;
+}
+
+.feedback__close {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: calc(50% + 516px);
+    top: calc(50% - 316px);
+    filter:  brightness(0) invert(1);
+    transition-property: width, height, left, top;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.feedback__close:hover {
+    width: 30px;
+    height: 30px;
+    left: calc(50% + 513px);
+    top: calc(50% - 319px);
+}
+
+.feedback__content {
+    width: 1000px;
+    height: 650px;
+    background-color: white;
+    position: relative;
+    left: calc(50% - 500px);
+    top: calc(50% - 325px);
+    border-radius: 25px;
+    display: flex;
+}

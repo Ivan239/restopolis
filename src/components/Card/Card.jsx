@@ -18,7 +18,7 @@ const Card = (props) => {
     }
 
     return <div className='card' onClick={() => handleBigCard()}>
-        <img className='card__image' src={img} alt='pizza_image' />
+        <img className='card__image' src={img} alt={name} />
         <div className='card__text'>
             <div className='card__info'>
                 <h3 className='card__name'>{name}</h3>
