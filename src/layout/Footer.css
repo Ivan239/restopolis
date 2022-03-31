@@ -1,6 +1,5 @@
 .footer {
-    width: 100vw;
-    left: calc(-50vw + 50%);
+    width: 100%;
     position: relative;
     background-color: rgb(24, 24, 24);
     display: flex;

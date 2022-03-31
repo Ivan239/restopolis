@@ -46,20 +46,10 @@
     margin-bottom: 12px;
 }
 
-.big-card__close {
-    cursor: pointer;
-    width: 1.5%;
-    height: auto;
-    filter:  brightness(0) invert(1);
-    transition-property: width, height, left, top;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
-}
-
 .big-card__close:hover {
-    left: 76.15%;
-    top: 29.35%;
-    width: 1.2%;
+    right: -20px;
+    top: 10px;
+    width: 3.5%;
     height: auto;
 }
 

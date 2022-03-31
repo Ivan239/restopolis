@@ -6,6 +6,9 @@ function Delivery() {
     let minDate = currentDate(2);
 
     return <div className="delivery">
+        <div className='delivery__cart'>
+            <Cart />
+        </div>
         <form className='delivery__form'>
             <h2 className="delivery__title">Order delivery</h2>
             <p>Name</p>
@@ -17,13 +20,10 @@ function Delivery() {
             <p>Phone</p>
             <input className='delivery__input delivery__phone' />
             <p>Date</p>
-            <input type='datetime-local' className='delivery__input delivery__date' min={minDate}/>
+            <input type='datetime-local' className='delivery__input delivery__date' min={minDate} />
             <br />
             <input type='submit' value='Confirm' className='delivery__submit' />
         </form>
-        <div className='delivery__cart'>
-            <Cart/>
-        </div>
     </div >
 }
 

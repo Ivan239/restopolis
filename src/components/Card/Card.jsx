@@ -31,7 +31,7 @@ const Card = (props) => {
             </div>
         </div>
         <div className={'card__big card__big-' + showBigCard}>
-            <BigCard name={name} img={img} price={price} />
+            <BigCard name={name} img={img} price={price} handleBigCard={handleBigCard}/>
         </div>
     </div>;
 };
