@@ -4,16 +4,13 @@
 
 .delivery {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
+    height: 550px;
 }
 
 .delivery__cart {
     min-width: 600px;
-}
-
-.delivery__cartname {
-    text-align: center;
 }
 
 .delivery__submit {

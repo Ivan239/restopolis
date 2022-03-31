@@ -30,7 +30,7 @@ const Card = (props) => {
                 </MenuButton>
             </div>
         </div>
-        <div className={'card__big-' + showBigCard}>
+        <div className={'card__big card__big-' + showBigCard}>
             <BigCard name={name} img={img} price={price} />
         </div>
     </div>;

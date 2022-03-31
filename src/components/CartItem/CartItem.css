@@ -1,0 +1,21 @@
+.cart-item {
+    display: flex;
+    height: 126px;
+    width: 99%;
+    border: 1px solid rgb(24, 24, 24, 0.6);
+    box-shadow: rgba(6, 5, 50, 0.12) 2px 2px 8px;
+    border-radius: 18px;
+    margin-bottom: 16px;
+}
+
+.cart-item__image {
+    padding: 9px 0 9px 9px;
+}
+
+.cart-item__topping {
+    margin: 0 0 0 0;
+}
+
+.cart-item__toppings {
+    display: flex;
+}
