@@ -19,3 +19,8 @@
     padding-left: 24px;
     padding-right: 24px;
 }
+
+
+.cart-button__link {
+    text-decoration: none;
+}

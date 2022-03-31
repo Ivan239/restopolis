@@ -10,6 +10,7 @@ import {
 import Delivery from './pages/Delivery/Delivery';
 import Book from './pages/Book/Book';
 import NotFound from './pages/NotFound/NotFound';
+import CartPage from './pages/CartPage/CartPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/delivery" element={<Delivery />} />
             <Route path="/book" element={<Book />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

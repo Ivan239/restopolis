@@ -1,0 +1,4 @@
+export const ADD_TOPPING = 'ADD_TOPPING'
+export const DELETE_TOPPING = 'DELETE_TOPPING'
+export const CHANGE_SIZE = 'CHANGE_SIZE'
+export const CLEAR_TOPPINGS = 'CLEAR_TOPPINGS'

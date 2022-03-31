@@ -1,21 +1,21 @@
 .big-card {
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 20%);
     position: fixed;
-    top: calc(-50vw + 50%);
+    top: calc(-50vh + 50%);
     left: calc(-50vw + 50%);
     z-index: 2;
     cursor: auto;
 }
 
 .big-card__content {
-    width: 1000px;
-    height: 650px;
+    width: 850px;
+    height: 550px;
     background-color: white;
     position: relative;
-    left: calc(50% - 500px);
-    top: calc(50% - 325px);
+    left: calc(50% - 425px);
+    top: calc(50% - 275px);
     border-radius: 25px;
     display: flex;
 }
@@ -23,38 +23,33 @@
 .big-card__image {
     margin-top: auto;
     margin-bottom: auto;
-    padding-left: 40px;
-    height: 460px;
-    width: 460px;
+    padding-left: 2%;
+    height: auto;
+    width: 45%;
     padding-right: 10px;
 }
 
 .big-card__name {
     text-align: center;
-    margin-top: 28px;
+    margin-top: 12px;
 }
 
 .big-card__info {
-    padding-right: 40px;
-    padding-left: 10px;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .big-card__button {
-    margin-top: 20px;
-    margin-bottom: 28px;
     height: 45px;
+    margin-bottom: 12px;
 }
 
 .big-card__close {
     cursor: pointer;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    left: calc(50% + 516px);
-    top: calc(50% - 316px);
+    width: 1.5%;
+    height: auto;
     filter:  brightness(0) invert(1);
     transition-property: width, height, left, top;
     transition-duration: 0.25s;
@@ -62,8 +57,12 @@
 }
 
 .big-card__close:hover {
-    width: 30px;
-    height: 30px;
-    left: calc(50% + 513px);
-    top: calc(50% - 319px);
+    left: 76.15%;
+    top: 29.35%;
+    width: 1.2%;
+    height: auto;
+}
+
+.big-card__description {
+    margin: 0 0 6px 0;
 }

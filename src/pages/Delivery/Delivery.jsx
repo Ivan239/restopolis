@@ -1,5 +1,6 @@
 import './Delivery.css'
 import currentDate from '../../components/currentDate'
+import Cart from '../../components/Cart/Cart'
 
 function Delivery() {
     let minDate = currentDate(2);
@@ -21,7 +22,7 @@ function Delivery() {
             <input type='submit' value='Confirm' className='delivery__submit' />
         </form>
         <div className='delivery__cart'>
-            <h2 className='delivery__cartname'>Your cart</h2>
+            <Cart/>
         </div>
     </div >
 }

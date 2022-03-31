@@ -1,6 +1,8 @@
 import React from 'react';
 import './Topping.css'
 import { useState } from 'react';
+import store from '../../redux/store/store';
+import { addTopping, deleteTopping } from '../../redux/dish/actions';
 
 
 const Topping = (props) => {
@@ -14,6 +16,11 @@ const Topping = (props) => {
 
     const handleTopping = () => {
         setChosenTopping(!chosenTopping)
+        !chosenTopping ? store.dispatch(addTopping({
+            id: name,
+            name: name,
+            price: price,
+        })) : store.dispatch(deleteTopping(name))
     }
 
     return <div className={'topping-' + chosenTopping} onClick={() => handleTopping()}>
