@@ -7,7 +7,8 @@ function Cart() {
     const price = store.getState().cart.reduce((prev, current) => prev + current.price, 0)
     return <div className="cart">
         <h2 className='cart__name'>Your cart</h2>
-        <CartItems dishes={items} />
+        {items.length ? <CartItems dishes={items} /> :
+            <h2 className='cart__sorry'>Sorry, you have nothing there</h2>}
         <div className='cart__value'>
             <h3 className='cart__total'>Total:</h3>
             <h3 className='cart__price'>${price}</h3>

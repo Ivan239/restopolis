@@ -20,14 +20,6 @@
     margin-top: 5px;
 }
 
-.card__big-false {
-    display: none;
-}
-
-.card__big-true {
-    display: block;
-}
-
 .card__button {
     width: 100px;
     margin-top: auto;
@@ -41,4 +33,22 @@
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.card__big-enter {
+    opacity: 0;
+}
+
+.card__big-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.card__big-exit {
+    opacity: 1;
+}
+
+.card__big-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
 }

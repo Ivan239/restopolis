@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MenuButton from '../MenuButton/MenuButton';
 import './BigCard.css';
 import Toppings from '../Toppings/Toppings';
@@ -14,7 +14,7 @@ const BigCard = (props) => {
         price,
         handleBigCard,
     } = props
-
+    
     const propClosing = (e) => {
         e.stopPropagation();
     }
@@ -37,10 +37,14 @@ const BigCard = (props) => {
     }
 
     const [fullPrice, setFullPrice] = useState(price)
-    store.subscribe(() => {
-        const addPrice = store.getState().dish.reduce((prev, current) => prev + current.price, 0)
-        setFullPrice(price + addPrice)
-    })
+    useEffect(() => {
+        const unsubscribe = store.subscribe(() => {
+            const addPrice = store.getState().dish.reduce((prev, current) => prev + current.price, 0)
+            setFullPrice(price + addPrice)
+        })
+        return unsubscribe
+    }, [price])
+
 
     return <div className='big-card'>
         <div className='big-card__content' onClick={(e) => propClosing(e)}>

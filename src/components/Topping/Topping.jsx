@@ -3,6 +3,7 @@ import './Topping.css'
 import { useState } from 'react';
 import store from '../../redux/store/store';
 import { addTopping, deleteTopping } from '../../redux/dish/actions';
+import { CSSTransition } from 'react-transition-group'
 
 
 const Topping = (props) => {
@@ -28,15 +29,17 @@ const Topping = (props) => {
         setChosenTopping(false)
     }, [isSelected])
 
-    return <div className={'topping-' + chosenTopping} onClick={() => handleTopping()}>
-        <img className='topping__image' src={img} alt={`${name}`} />
-        <div className='topping__text'>
-            <div className='topping__info'>
-                <h3 className='topping__name'>{name}</h3>
-                <h4 className='topping__price'>${price}</h4>
+    return <CSSTransition in={chosenTopping} timeout={300} classNames={'topping__animation'} >
+        <div className={'topping'} onClick={() => handleTopping()}>
+            <img className='topping__image' src={img} alt={`${name}`} />
+            <div className='topping__text'>
+                <div className='topping__info'>
+                    <h3 className='topping__name'>{name}</h3>
+                    <h4 className='topping__price'>${price}</h4>
+                </div>
             </div>
         </div>
-    </div>;
+    </CSSTransition>;
 };
 
 export default Topping;
