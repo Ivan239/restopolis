@@ -23,6 +23,7 @@ function Profile() {
     }
 
     return <div className="profile">
+        {store.getState().account.uid ? store.getState().account.uid : null}
         <button onClick={() => authorise()}>Register</button>
         <button onClick={() => logout()}>Logout</button>
     </div >
