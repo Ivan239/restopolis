@@ -6,6 +6,7 @@ import { addDish } from '../../redux/cart/actions';
 import store from '../../redux/store/store';
 import { clearToppings } from '../../redux/dish/actions';
 import CloseIcon from '../CloseIcon/CloseIcon';
+import newId from '../newId';
 
 const BigCard = (props) => {
     const {
@@ -21,19 +22,17 @@ const BigCard = (props) => {
 
     const [isSelected, setIsSelected] = useState(true)
 
-    const newId = () => Math.floor((1 + Math.random()) * 0x10000000)
-        .toString(16)
-
     const addToCart = () => {
         setIsSelected(!isSelected)
         store.dispatch(addDish({
             img: img,
             name: name,
             price: fullPrice,
+            toppings: store.getState().dish,
             id: newId(),
         }))
         store.dispatch(clearToppings())
-        // add closing of bigcart
+        handleBigCard()
     }
 
     const [fullPrice, setFullPrice] = useState(price)
@@ -56,7 +55,7 @@ const BigCard = (props) => {
                 <Toppings isSelected={isSelected} />
                 <div className='big-card__button'>
                     <MenuButton onClick={() => addToCart()}>
-                        <h3 className='big-card__price'>Add to cart for ${fullPrice}</h3>
+                        <h3 className='big-card__price'>Add to cart for ${fullPrice.toFixed(2)}</h3>
                     </MenuButton>
                 </div>
             </div>

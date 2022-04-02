@@ -7,10 +7,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Delivery from './pages/Delivery/Delivery';
+import Order from './pages/Order/Order';
 import Book from './pages/Book/Book';
 import NotFound from './pages/NotFound/NotFound';
-import CartPage from './pages/CartPage/CartPage';
+import Profile from './pages/Profile/Profile';
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
         <div className='content'>
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/delivery" element={<Delivery />} />
+            <Route path="/order" element={<Order />} />
             <Route path="/book" element={<Book />} />
-            <Route path="/cart" element={<CartPage />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

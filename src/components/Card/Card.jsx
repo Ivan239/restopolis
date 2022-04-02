@@ -26,7 +26,7 @@ const Card = (props) => {
         <div className='card__text'>
             <div className='card__info'>
                 <h3 className='card__name'>{name}</h3>
-                <h4 className='card__price'>From ${price}</h4>
+                <h4 className='card__price'>From ${price.toFixed(2)}</h4>
             </div>
             <div className='card__button'>
                 <MenuButton>

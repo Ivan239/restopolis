@@ -1,15 +1,25 @@
 import './Book.css'
 import currentDate from '../../components/currentDate'
 import { useForm } from 'react-hook-form'
+import { getDatabase, ref, set } from "firebase/database";
+import newId from '../../components/newId';
+import store from '../../redux/store/store';
 
 function Book() {
     let minDate = currentDate(4);
     const {
         register,
         handleSubmit,
+        reset,
     } = useForm();
+    const database = getDatabase();
     const onSubmit = (data) => {
-        console.log(data);
+        let userID = store.getState().account.uid
+        if (!userID) {
+            userID = 'non-auth'
+        }
+        set(ref(database, `/bookings/${userID}/${newId()}`), data);
+        reset()
     };
     return <div className="book">
         <form className='book__form' onSubmit={handleSubmit(onSubmit)}>

@@ -1,4 +1,5 @@
 .cart-items {
     overflow-y: auto;
-    max-height: 424px;
+    max-height: 480px;
+    width: 100%;
 }

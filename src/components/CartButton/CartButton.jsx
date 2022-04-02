@@ -9,7 +9,7 @@ const CartButton = () => {
         setAmount(store.getState().cart.length)
     })
 
-    return <NavLink to='/cart' className='cart-button__link'>
+    return <NavLink to='/order' className='cart-button__link'>
         <div className='cart-button'>
             <h2 className='cart-button__text'>Cart | {amount}</h2>
         </div>

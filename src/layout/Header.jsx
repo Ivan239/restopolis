@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 const barButtons = [
     'menu',
-    'delivery',
+    'order',
     'book',
     'profile',
 ]

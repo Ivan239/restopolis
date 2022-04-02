@@ -7,7 +7,7 @@ const CartItems = (props) => {
         dishes,
     } = props
     return <div className='cart-items'>
-        {dishes.map((elem) => <CartItem key={elem.id} name={elem.name} price={elem.price} img={elem.img} toppings={['test1', 'test2', 'test1', 'test2', 'test1', 'test2']}/>)}
+        {dishes.map((elem) => <CartItem key={elem.id} name={elem.name} price={elem.price} img={elem.img} toppings={elem.toppings}/>)}
     </div>;
 };
 

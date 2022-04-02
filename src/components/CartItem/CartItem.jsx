@@ -15,9 +15,9 @@ const CartItem = (props) => {
             <h3 className='cart-item__name'>{name}</h3>
             <div className='cart-item__toppings'>
                 {toppings ? toppings.map((topping) =>
-                    <p key={'CHANGE_IT'} className='cart-item__topping'>{topping}</p>) : null}
+                    <p key={topping.id} className='cart-item__topping'>+ {topping.name}</p>) : null}
             </div>
-            <h4 className='cart-item__price'>${price}</h4>
+            <h4 className='cart-item__price'>${price.toFixed(2)}</h4>
         </div>
     </div>;
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import './Feedback.css';
 import CloseIcon from '../CloseIcon/CloseIcon';
 import { useForm } from 'react-hook-form'
+import { getDatabase, ref, set } from "firebase/database";
+import newId from '../newId';
 
 const Feedback = (props) => {
 
@@ -11,9 +13,13 @@ const Feedback = (props) => {
     const {
         register,
         handleSubmit,
+        reset,
     } = useForm();
+    const database = getDatabase();
     const onSubmit = (data) => {
-        console.log(data);
+        set(ref(database, `feedbacks/${newId()}`), data);
+        reset()
+        props.handleCard()
     };
 
     return <div className='feedback' onClick={() => props.handleCard()}>

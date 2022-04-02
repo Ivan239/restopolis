@@ -1,8 +1,4 @@
-import { ADD_DISH, DELETE_DISH, LOAD_CART } from "./types";
-
-export const loadCart = () => ({
-    type: LOAD_CART,
-});
+import { ADD_DISH, DELETE_CART, DELETE_DISH } from "./types";
 
 export const deleteDish = (dishId) => ({
     type: DELETE_DISH,
@@ -13,3 +9,7 @@ export const addDish = (newDish) => ({
     type: ADD_DISH,
     payload: newDish,
 });
+
+export const deleteCart = () => ({
+    type: DELETE_CART,
+})
