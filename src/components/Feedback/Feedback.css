@@ -1,12 +1,13 @@
 .feedback {
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 20%);
     position: fixed;
-    top: calc(-50vw + 50%);
+    top: calc(-50vh + 50%);
     left: calc(-50vw + 50%);
     z-index: 2;
     cursor: auto;
+    text-align: center;
 }
 
 .feedback__close {
@@ -16,7 +17,7 @@
     position: absolute;
     left: calc(50% + 516px);
     top: calc(50% - 316px);
-    filter:  brightness(0) invert(1);
+    filter: brightness(0) invert(1);
     transition-property: width, height, left, top;
     transition-duration: 0.25s;
     transition-timing-function: ease;
@@ -30,12 +31,103 @@
 }
 
 .feedback__content {
-    width: 1000px;
-    height: 650px;
+    width: 850px;
+    height: 550px;
     background-color: white;
     position: relative;
-    left: calc(50% - 500px);
-    top: calc(50% - 325px);
+    left: calc(50% - 425px);
+    top: calc(50% - 275px);
     border-radius: 25px;
+}
+
+.feedback__form {
+    width: 95%;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
+    height: 100%;
+}   
+
+.feedback__header {
+    padding-top: 20px;
+}
+
+.feedback__input {
+    border: 1px solid rgb(226, 226, 233);
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.feedback__form p {
+    padding-left: 16px;
+    display: inline-block;
+}
+
+.feedback__name {
+    width: 100%;
+    text-align: left;
+}
+
+.feedback__email {
+    width: 100%;
+    text-align: left;
+}
+
+.feedback__personal {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.feedback__input {
+    width: 100%;
+}
+
+.feedback__inputbox {
+    width: 100%;
+}
+
+.feedback__textareabox {
+    flex-grow: 1;
+}
+
+.feedback__textarea {
+    width: 100%;
+    height: 85%;
+    border: 1px solid rgb(226, 226, 233);
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    resize: none;
+}
+
+.feedback__textarea:focus {
+    outline: none
+}
+
+.feedback__text {
+    width: 100%;
+    text-align: left;
+}
+
+.feedback__submit {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    transition-property: background-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.feedback__submit:hover {
+    background-color: rgb(42, 42, 42);
 }

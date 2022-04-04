@@ -1,34 +1,37 @@
-.cart__value {
+.orders {
+    width: 100%;
+}
+
+.orders__value {
     display: flex;
     justify-content: space-between;
 }
 
-.cart__total {
+.orders__total {
     margin-left: 20px;
 }
 
-.cart__price {
+.orders__price {
     margin-right: 20px;
 }
 
-.cart {
+.orders {
     height: 100%;
-    max-width: 80%;
     margin: auto auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.cart__name {
+.orders__name {
     text-align: center;
 }
 
-.cart__sorry {
+.orders__sorry {
     text-align: center;
 }
 
-.cart__items {
+.orders__items {
     flex-grow: 1;
     padding-top: 20px;
 }

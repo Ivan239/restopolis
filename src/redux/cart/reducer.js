@@ -1,9 +1,9 @@
-import { ADD_DISH, DELETE_DISH, LOAD_CART } from "./types";
+import { ADD_DISH, DELETE_CART, DELETE_DISH, UPLOAD_CART } from "./types";
 
 export default function reducer(state, action) {
     switch (action.type) {
-        case LOAD_CART:
-            return state;
+        case UPLOAD_CART:
+            return action.payload;
         case ADD_DISH:
             if (!state) {
                 return [action.payload];
@@ -14,6 +14,8 @@ export default function reducer(state, action) {
                 return state;
             }
             return state.filter((dish) => dish.id !== action.payload);
+        case DELETE_CART:
+            return [];
         default: return state || [];
     }
 }

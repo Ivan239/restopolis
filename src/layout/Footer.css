@@ -1,6 +1,5 @@
 .footer {
-    width: 100vw;
-    left: calc(-50vw + 50%);
+    width: 100%;
     position: relative;
     background-color: rgb(24, 24, 24);
     display: flex;
@@ -29,12 +28,22 @@
     color: white;
 }
 
-.footer__feedback-false {
-    display: none;
+.footer__feedback-enter {
+    opacity: 0;
 }
 
-.footer__feedback-true {
-    display: block;
+.footer__feedback-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+.footer__feedback-exit {
+    opacity: 1;
+}
+
+.footer__feedback-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
 }
 
 #footer__feedback {

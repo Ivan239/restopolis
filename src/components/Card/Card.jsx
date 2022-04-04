@@ -3,6 +3,9 @@ import './Card.css';
 import BigCard from '../BigCard/BigCard';
 import { useState } from 'react';
 import MenuButton from '../MenuButton/MenuButton';
+import store from '../../redux/store/store';
+import { clearToppings } from '../../redux/dish/actions';
+import { CSSTransition } from 'react-transition-group'
 
 const Card = (props) => {
     const {
@@ -15,6 +18,7 @@ const Card = (props) => {
 
     const handleBigCard = () => {
         setShowBigCard(!showBigCard)
+        store.dispatch(clearToppings())
     }
 
     return <div className='card' onClick={() => handleBigCard()}>
@@ -22,7 +26,7 @@ const Card = (props) => {
         <div className='card__text'>
             <div className='card__info'>
                 <h3 className='card__name'>{name}</h3>
-                <h4 className='card__price'>From ${price}</h4>
+                <h4 className='card__price'>From ${price.toFixed(2)}</h4>
             </div>
             <div className='card__button'>
                 <MenuButton>
@@ -30,9 +34,9 @@ const Card = (props) => {
                 </MenuButton>
             </div>
         </div>
-        <div className={'card__big card__big-' + showBigCard}>
-            <BigCard name={name} img={img} price={price} />
-        </div>
+        <CSSTransition in={showBigCard} timeout={300} classNames={'card__big'} unmountOnExit >
+            <BigCard name={name} img={img} price={price} handleBigCard={handleBigCard}/>
+        </CSSTransition>
     </div>;
 };
 

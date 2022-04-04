@@ -1,0 +1,27 @@
+.profile-info__email {
+    font-size: 16px;
+}
+
+.profile-info__setbtn {
+    height: 30px;
+}
+
+.profile-info__settxt {
+    color: white;
+    margin: 0;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.profile-info p {
+    margin: 0;
+}
+
+.profile-info__name {
+    font-size: 20px;
+    margin: 0;
+}

@@ -7,12 +7,25 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Delivery from './pages/Delivery/Delivery';
+import Order from './pages/Order/Order';
 import Book from './pages/Book/Book';
 import NotFound from './pages/NotFound/NotFound';
-import CartPage from './pages/CartPage/CartPage';
+import Profile from './pages/Profile/Profile';
+import store from './redux/store/store';
+import { newAccount } from './redux/account/actions';
+import { uploadCart } from './redux/cart/actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  store.dispatch(newAccount(JSON.parse(localStorage.getItem('account')) || {}));
+  store.dispatch(uploadCart(JSON.parse(localStorage.getItem('cart')) || []));
+  store.subscribe(() => {
+    localStorage.setItem('account',
+      JSON.stringify(store.getState().account));
+    localStorage.setItem('cart',
+      JSON.stringify(store.getState().cart));
+  })
   return (
     <div className="app">
       <BrowserRouter >
@@ -20,14 +33,25 @@ function App() {
         <div className='content'>
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/delivery" element={<Delivery />} />
+            <Route path="/order" element={<Order />} />
             <Route path="/book" element={<Book />} />
-            <Route path="/cart" element={<CartPage />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
       </BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={2600}
+        hideProgressBar = {false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
