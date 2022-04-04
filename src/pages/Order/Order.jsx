@@ -6,6 +6,7 @@ import { getDatabase, ref, set } from "firebase/database";
 import newId from '../../components/newId';
 import store from '../../redux/store/store';
 import { deleteCart } from '../../redux/cart/actions';
+import { toast } from 'react-toastify'
 
 function Delivery() {
     let minDate = currentDate(2);
@@ -13,18 +14,38 @@ function Delivery() {
         register,
         handleSubmit,
         reset,
+        formState: { errors }
     } = useForm();
     const database = getDatabase();
     const onSubmit = (data) => {
-        let userID = store.getState().account.uid
-        if (!userID) {
-            userID = 'non-auth'
+        if (store.getState().cart.length) {
+            let userID = store.getState().account.uid
+            if (!userID) {
+                userID = 'non-auth'
+            }
+            data.cart = store.getState().cart
+            set(ref(database, `/deliveries/${userID}/${newId()}`), data);
+            store.dispatch(deleteCart())
+            reset()
+            toast.success(`Order is processed`, {
+                autoClose: 2400
+            })
+        } else {
+            toast.error(`Your cart is empty`, {
+                autoClose: 2400
+            })
         }
-        data.cart = store.getState().cart
-        set(ref(database, `/deliveries/${userID}/${newId()}`), data);
-        store.dispatch(deleteCart())
-        reset()
     };
+    const toastError = (field) => {
+        toast.error(`${field} is required`, {
+            autoClose: 2400
+        })
+    }
+    const checkErrors = (errors) => {
+        return errors.Name ? toastError('Name') :
+            errors.Phone ? toastError('Phone') :
+                errors.Date ? toastError('Date') : null
+    }
     return <div className="delivery">
         <div className='delivery__cart'>
             <Cart />
@@ -36,6 +57,8 @@ function Delivery() {
                 <input
                     className='delivery__input delivery__name'
                     placeholder='Ivan'
+                    id='Name'
+                    aria-invalid={errors.Name ? "true" : "false"}
                     {...register("Name", { required: true })} />
                 <p>Address</p>
                 <input
@@ -47,17 +70,23 @@ function Delivery() {
                     type='email'
                     className='delivery__input delivery__email'
                     placeholder='example@website.com'
-                    {...register("E-mail", { required: false })} />
+                    {...register("Email", { required: false })} />
                 <p>Phone</p>
                 <input
                     className='delivery__input delivery__phone'
                     placeholder='+79810001122'
+                    id='Phone'
+                    type='tel'
+                    minLength="10"
+                    aria-invalid={errors.Phone ? "true" : "false"}
                     {...register("Phone", { required: true })} />
                 <p>Date</p>
                 <input
                     type='datetime-local'
                     className='delivery__input delivery__date'
                     min={minDate}
+                    id='Date'
+                    aria-invalid={errors.Date ? "true" : "false"}
                     {...register("Date", { required: true })} />
                 <br />
                 <label>
@@ -68,7 +97,7 @@ function Delivery() {
                     />Pick up at restaurant
                 </label>
                 <br />
-                <input type='submit' value='Confirm' className='delivery__submit' />
+                <input type='submit' value='Confirm' className='delivery__submit' onClick={() => checkErrors(errors)}/>
             </form>
         </div>
     </div >

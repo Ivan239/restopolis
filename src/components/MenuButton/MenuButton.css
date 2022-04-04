@@ -8,6 +8,7 @@
     transition-property: background-color;
     transition-duration: 0.25s;
     transition-timing-function: ease;
+    color: white;
 }
 
 .menu-button:hover {

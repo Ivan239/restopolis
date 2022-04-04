@@ -2,30 +2,83 @@ import './Profile.css'
 import app from '../../firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import store from '../../redux/store/store';
-import { deleteAccount, newAccount } from '../../redux/account/actions';
+import { deleteAccount, loadBookings, loadOrders, newAccount } from '../../redux/account/actions';
+import { useEffect, useState } from 'react';
+import ProfileContent from '../../components/ProfileContent/ProfileContent';
+import { getDatabase, ref, get, child } from "firebase/database";
+import { toast } from 'react-toastify'
 
 function Profile() {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
+    const [data, setData] = useState({})
+    async function getData(uid) {
+        const dbRef = ref(getDatabase());
+        const bookings = get(child(dbRef, `bookings/${uid}`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log(snapshot.val())
+                return Object.values(snapshot.val())
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+        const bookingsResult = await bookings
+        const orders = get(child(dbRef, `deliveries/${uid}`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log(snapshot.val())
+                return Object.values(snapshot.val())
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+        const ordersResult = await orders
+        setData({
+            orders: ordersResult,
+            bookings: bookingsResult
+        })
+    }
     const authorise = () => {
         signInWithPopup(auth, provider)
-        .then((result) => {
-            const user = result.user;
-            store.dispatch(newAccount(user))
-        }).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(`${errorCode} ${errorMessage}`)
-        });
+            .then((result) => {
+                const user = result.user;
+                store.dispatch(newAccount(user))
+                getData(user.uid)
+                console.log(data)
+                store.dispatch(loadOrders(data.orders))
+                store.dispatch(loadBookings(data.bookings))
+                console.log(store.getState().account)
+                toast.success(`Successfull authorisation`, {
+                    autoClose: 2400
+                })
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                toast.error(`${errorCode} ${errorMessage}`, {
+                    autoClose: 2400
+                })
+            });
     }
     const logout = () => {
         store.dispatch(deleteAccount());
+        console.log(currentUser)
+        toast.success(`Successfull logout`, {
+            autoClose: 2400
+        })
     }
+    const [currentUser, setCurrentUser] = useState(store.getState().account)
+    useEffect(() => {
+        const unsubscribe = store.subscribe(() => {
+            setCurrentUser(store.getState().account)
+        })
+        return unsubscribe
+    }, [])
 
     return <div className="profile">
-        {store.getState().account.uid ? store.getState().account.uid : null}
-        <button onClick={() => authorise()}>Register</button>
+        <button onClick={() => authorise()}>Auth</button>
         <button onClick={() => logout()}>Logout</button>
+        <div className='profile__content'>
+            <ProfileContent currentUser={currentUser} />
+        </div>
     </div >
 }
 

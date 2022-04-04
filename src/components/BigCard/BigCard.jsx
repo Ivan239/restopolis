@@ -4,9 +4,11 @@ import './BigCard.css';
 import Toppings from '../Toppings/Toppings';
 import { addDish } from '../../redux/cart/actions';
 import store from '../../redux/store/store';
-import { clearToppings } from '../../redux/dish/actions';
+import { addTopping, clearToppings, deleteTopping } from '../../redux/dish/actions';
 import CloseIcon from '../CloseIcon/CloseIcon';
+import { toast } from 'react-toastify';
 import newId from '../newId';
+import { CSSTransition } from 'react-transition-group'
 
 const BigCard = (props) => {
     const {
@@ -15,14 +17,25 @@ const BigCard = (props) => {
         price,
         handleBigCard,
     } = props
-    
+
     const propClosing = (e) => {
         e.stopPropagation();
     }
 
-    const [isSelected, setIsSelected] = useState(true)
+    const [isSelected, setIsSelected] = useState(() => {
+        store.dispatch(addTopping({
+            id: 'Small',
+            name: 'Small',
+            price: 0,
+        }))
+        return false
+    })
+    const [big, setBig] = useState(false)
 
     const addToCart = () => {
+        toast.info(`You added "${name}" to cart`, {
+            autoClose: 2300
+        })
         setIsSelected(!isSelected)
         store.dispatch(addDish({
             img: img,
@@ -30,8 +43,10 @@ const BigCard = (props) => {
             price: fullPrice,
             toppings: store.getState().dish,
             id: newId(),
+            big: big,
         }))
         store.dispatch(clearToppings())
+        setBig(false)
         handleBigCard()
     }
 
@@ -44,11 +59,35 @@ const BigCard = (props) => {
         return unsubscribe
     }, [price])
 
+    const toggleSize = (size) => {
+        if (size !== big) {
+            setBig(size)
+            store.dispatch(addTopping({
+                id: !big ? 'Big' : 'Small',
+                name: !big ? 'Big' : 'Small',
+                price: !big ? 4 : 0,
+            }))
+            store.dispatch(deleteTopping(!big ? 'Small' : 'Big'))
+            console.log(store.getState().dish)
+        }
+    }
 
     return <div className='big-card'>
         <div className='big-card__content' onClick={(e) => propClosing(e)}>
             <CloseIcon handleCard={handleBigCard} />
-            <img className='big-card__image' src={img} alt='pizza_image' />
+            <div className='big-card__left'>
+                <div className='big-card__size'>
+                    <CSSTransition in={!big} timeout={0} classNames={'big-card-size'} >
+                        <p className='big-card__small' onClick={() => toggleSize(false)}>Small</p>
+                    </CSSTransition>
+                    <CSSTransition in={big} timeout={0} classNames={'big-card-size'} >
+                        <p className='big-card__big' onClick={() => toggleSize(true)}>Big</p>
+                    </CSSTransition>
+                </div>
+                <CSSTransition in={big} timeout={0} classNames={'big-card-image'} >
+                    <img className='big-card__image' src={img} alt='pizza_image' />
+                </CSSTransition>
+            </div>
             <div className='big-card__info'>
                 <h1 className='big-card__name'>{name}</h1>
                 <p className='big-card__description'>Chicken pieces, bell peppers, cheddar and parmesan cheese mix, mozzarella, red onion, sweet chili sauce, alfredo sauce</p>

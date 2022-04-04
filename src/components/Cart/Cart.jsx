@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import store from '../../redux/store/store'
 import CartItems from '../CartItems/CartItems'
+import { toast } from 'react-toastify';
 import './Cart.css'
 
 function Cart() {
@@ -16,7 +17,7 @@ function Cart() {
         <h2 className='cart__name'>Your cart</h2>
         {items.length ? <div className='cart__items'>
             <CartItems dishes={items} />
-        </div> : <h2 className='cart__sorry'>Sorry, you have nothing there</h2>}
+        </div> : <h2 className='cart__sorry'>Sorry, you have nothing here</h2>}
         <div className='cart__value'>
             <h3 className='cart__total'>Total:</h3>
             <h3 className='cart__price'>${price.toFixed(2)}</h3>

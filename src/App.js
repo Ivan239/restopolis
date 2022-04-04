@@ -14,6 +14,8 @@ import Profile from './pages/Profile/Profile';
 import store from './redux/store/store';
 import { newAccount } from './redux/account/actions';
 import { uploadCart } from './redux/cart/actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   store.dispatch(newAccount(JSON.parse(localStorage.getItem('account')) || {}));
@@ -24,7 +26,6 @@ function App() {
     localStorage.setItem('cart',
       JSON.stringify(store.getState().cart));
   })
-  console.log(store.getState())
   return (
     <div className="app">
       <BrowserRouter >
@@ -40,6 +41,17 @@ function App() {
         </div>
         <Footer />
       </BrowserRouter>
+      <ToastContainer
+        position="top-right"
+        autoClose={2600}
+        hideProgressBar = {false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

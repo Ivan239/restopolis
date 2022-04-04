@@ -1,0 +1,37 @@
+.orders {
+    width: 100%;
+}
+
+.orders__value {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orders__total {
+    margin-left: 20px;
+}
+
+.orders__price {
+    margin-right: 20px;
+}
+
+.orders {
+    height: 100%;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.orders__name {
+    text-align: center;
+}
+
+.orders__sorry {
+    text-align: center;
+}
+
+.orders__items {
+    flex-grow: 1;
+    padding-top: 20px;
+}

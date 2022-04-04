@@ -41,7 +41,7 @@ const Feedback = (props) => {
                             type='email'
                             className='feedback__input'
                             placeholder='example@website.com'
-                            {...register("E-mail", { required: true })} />
+                            {...register("Email", { required: true })} />
                     </div>
                 </div>
                 <div className='feedback__textareabox'>

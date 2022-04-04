@@ -1,0 +1,21 @@
+.nextbooking__title {
+    text-align: center;
+}
+
+.nextbooking__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nextbooking__text {
+    text-align: right;
+}
+
+.nextbooking__error {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.nextbooking {
+    min-height: 220px;
+}
