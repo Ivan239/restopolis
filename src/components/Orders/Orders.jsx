@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 const Orders = () => {
     let price = 0;
-    console.log(store.getState().account.orders, 'store')
     const [orders, setOrders] = useState(store.getState().account.orders)
     useEffect(() => {
         const unsubscribe = store.subscribe(() => {
@@ -22,7 +21,6 @@ const Orders = () => {
                 })
             }
             setOrders(newOrders)
-            console.log(newOrders, 'no')
         })
         return unsubscribe
     }, [])
