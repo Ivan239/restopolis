@@ -2,6 +2,7 @@ import './Main.css'
 import Cards from '../components/Cards/Cards'
 import { getDatabase, ref, get, child } from "firebase/database";
 import { useState } from 'react';
+import loader from '../assets/loader.gif'
 
 async function dishes() {
     const dbRef = ref(getDatabase());
@@ -31,7 +32,7 @@ function Main() {
 
     return <div className="main">
         <h2 className='main__category' style={{ textAlign: 'center' }}>Pizzas</h2>
-        {!loading ? <Cards dishes={pizzas} /> : <p>Loading</p>}
+        {!loading ? <Cards dishes={pizzas} /> : <img src={loader} alt='Loading...' className='main__loader' />}
     </div>
 }
 
