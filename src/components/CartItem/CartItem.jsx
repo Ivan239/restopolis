@@ -10,9 +10,11 @@ const CartItem = (props) => {
     } = props
 
     const size = () => {
-        for (let i = 0; i < toppings.length; i++) {
-            if (toppings[i].id === 'Small' || toppings[i].id === 'Big') {
-                return toppings[i].id
+        if (toppings) {
+            for (let i = 0; i < toppings.length; i++) {
+                if (toppings[i].id === 'Small' || toppings[i].id === 'Big') {
+                    return toppings[i].id
+                }
             }
         }
     }

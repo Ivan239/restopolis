@@ -49,7 +49,6 @@ function Profile() {
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(store.getState().account)
                 toast.error(`${errorCode} ${errorMessage}`, {
                     autoClose: 2400
                 })
