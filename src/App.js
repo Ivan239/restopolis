@@ -28,7 +28,7 @@ function App() {
   })
   return (
     <div className="app">
-      <BrowserRouter >
+      <BrowserRouter basename="/restopolis">
         <Header />
         <div className='content'>
           <Routes>
