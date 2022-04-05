@@ -15,7 +15,6 @@ function Profile() {
         const dbRef = ref(getDatabase());
         const bookings = get(child(dbRef, `bookings/${uid}`)).then((snapshot) => {
             if (snapshot.exists()) {
-                console.log(snapshot.val())
                 return Object.values(snapshot.val())
             }
         }).catch((error) => {
@@ -24,7 +23,6 @@ function Profile() {
         const bookingsResult = await bookings
         const orders = get(child(dbRef, `deliveries/${uid}`)).then((snapshot) => {
             if (snapshot.exists()) {
-                console.log(snapshot.val())
                 return Object.values(snapshot.val())
             }
         }).catch((error) => {
@@ -43,10 +41,8 @@ function Profile() {
                 store.dispatch(newAccount(user))
                 return getData(user.uid)   
             }).then(data => {
-                console.log(data)
                 store.dispatch(loadOrders(data.orders))
                 store.dispatch(loadBookings(data.bookings))
-                console.log(store.getState().account)
                 toast.success(`Successfull authorisation`, {
                     autoClose: 2400
                 })
@@ -60,7 +56,6 @@ function Profile() {
     }
     const logout = () => {
         store.dispatch(deleteAccount());
-        console.log(currentUser)
         toast.success(`Successfull logout`, {
             autoClose: 2400
         })

@@ -6,8 +6,6 @@ import './ProfileContent.css'
 function ProfileContent(props) {
     const {
         currentUser,
-        orders,
-        bookings,
         loading,
     } = props
     return <div className='profilecontent'>
@@ -19,10 +17,10 @@ function ProfileContent(props) {
                     <ProfileInfo currentUser={currentUser} />
                 </div>
             </div>
-            <ClosestBooking uid={currentUser.uid} />
+            <ClosestBooking uid={currentUser.uid} loading={loading}/>
         </div>
         <div className='profile__orders'>
-            <Orders uid={currentUser.uid} orders={orders} loading={loading}/>
+            <Orders uid={currentUser.uid} loading={loading}/>
         </div>
     </div>
 }
