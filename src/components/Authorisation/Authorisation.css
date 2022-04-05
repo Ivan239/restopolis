@@ -1,0 +1,71 @@
+.auth {
+    position: relative;
+    width: 30%;
+    height: 43%;
+}
+
+.auth__form {
+    height: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.auth__field {
+    width: 80%;
+}
+
+.auth p {
+    width: 80%;
+    padding-left: 16px;
+    margin: 0;
+}
+
+.auth h2 {
+    line-height: 30px;
+}
+
+.auth__button {
+    width: 100%;
+}
+
+.auth__google {
+    height: 34px;
+    cursor: pointer;
+    border: 1px solid rgb(226, 226, 233);
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: none;
+    transition-property: box-shadow;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.auth__google:hover {
+    box-shadow: rgba(6, 5, 50, 0.2) 1px 1px 4px;
+}
+
+.auth__enter p {
+    padding: 6px 0 0 10px;
+    width: 36px;
+}
+
+.auth__enter {
+    width: 50%;
+    height: 34px;
+    display: flex;
+}
+
+.auth__back {
+    cursor: pointer;
+    top: 20px;
+    left: 18px;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+}
