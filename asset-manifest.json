@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/restopolis/static/css/main.ae804bdd.css",
+    "main.js": "/restopolis/static/js/main.21a236ea.js",
+    "static/media/pepperoni.png": "/restopolis/static/media/pepperoni.382bda11eb78541ae933.png",
+    "static/media/pepperoni_t.png": "/restopolis/static/media/pepperoni_t.dd6d0da988b27a23b82e.png",
+    "static/media/chicken.png": "/restopolis/static/media/chicken.6995c38d339ea2d9a210.png",
+    "static/media/bacon.png": "/restopolis/static/media/bacon.8dec41ef188cc78b55c4.png",
+    "static/media/jalapeno.png": "/restopolis/static/media/jalapeno.a72ea573062ee4417df6.png",
+    "static/media/champinons.png": "/restopolis/static/media/champinons.2f72c6af6d19fe3bcfa8.png",
+    "static/media/mozzarella.png": "/restopolis/static/media/mozzarella.ca9084eff3431dd21c80.png",
+    "static/media/close.svg": "/restopolis/static/media/close.95192aa70bb1cec448b306c96ef3baac.svg",
+    "index.html": "/restopolis/index.html",
+    "main.ae804bdd.css.map": "/restopolis/static/css/main.ae804bdd.css.map",
+    "main.21a236ea.js.map": "/restopolis/static/js/main.21a236ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae804bdd.css",
+    "static/js/main.21a236ea.js"
+  ]
+}
