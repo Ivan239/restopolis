@@ -1,74 +1,37 @@
 import './Main.css'
-import pepperoni from '../assets/pepperoni.png'
 import Cards from '../components/Cards/Cards'
+import { getDatabase, ref, get, child } from "firebase/database";
+import { useState } from 'react';
 
-const pizzas = [
-    {
-        name: 'Pepperoni with gold',
-        img: pepperoni,
-        price: 5000,
-        id: 1,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 2,
-    },
-    {
-        name: 'Pepperoni with gold',
-        img: pepperoni,
-        price: 5000,
-        id: 3,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 4,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 5,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 6,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 7,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 8,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 9,
-    },
-    {
-        name: 'Pepperoni',
-        img: pepperoni,
-        price: 500,
-        id: 0,
-    },
-]
+async function dishes() {
+    const dbRef = ref(getDatabase());
+    const getPizzas = get(child(dbRef, `/pizzas`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            return Object.values(snapshot.val())
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+    const pizzas = await getPizzas
+    return {
+        pizzas: pizzas
+    }
+}
 
 function Main() {
+    const [pizzas, setPizzas] = useState([])
+    const [loading, setLoading] = useState(true)
+    if (!pizzas.length) {
+        dishes()
+            .then((result) => {
+                setPizzas(result.pizzas)
+                setLoading(false)
+            })
+    }
+
     return <div className="main">
-        <h2 className='main__category' style={{textAlign: 'center'}}>Pizzas</h2>
-        <Cards dishes={pizzas} />
+        <h2 className='main__category' style={{ textAlign: 'center' }}>Pizzas</h2>
+        {!loading ? <Cards dishes={pizzas} /> : <p>Loading</p>}
     </div>
 }
 
