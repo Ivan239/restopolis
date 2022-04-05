@@ -7,6 +7,7 @@ import newId from '../../components/newId';
 import store from '../../redux/store/store';
 import { deleteCart } from '../../redux/cart/actions';
 import { toast } from 'react-toastify'
+import { addOrder } from '../../redux/account/actions';
 
 function Delivery() {
     let minDate = currentDate(2);
@@ -26,6 +27,7 @@ function Delivery() {
             data.cart = store.getState().cart
             set(ref(database, `/deliveries/${userID}/${newId()}`), data);
             store.dispatch(deleteCart())
+            store.dispatch(addOrder(data))
             reset()
             toast.success(`Order is processed`, {
                 autoClose: 2400

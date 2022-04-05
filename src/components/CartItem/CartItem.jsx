@@ -20,7 +20,7 @@ const CartItem = (props) => {
     return <div className='cart-item'>
         <img className='cart-item__image' src={img} alt={name} />
         <div className='cart-item__content'>
-            <h3 className='cart-item__name'>{name} &mdash; {size()}</h3>
+            <h3 className='cart-item__name'>{name} &mdash; {size() || 'Small'}</h3>
             <div className='cart-item__toppings'>
                 {toppings ? toppings.map((topping) => {
                     return (topping.id !== 'Small' && topping.id !== 'Big') ?

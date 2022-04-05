@@ -68,7 +68,6 @@ const BigCard = (props) => {
                 price: !big ? 4 : 0,
             }))
             store.dispatch(deleteTopping(!big ? 'Small' : 'Big'))
-            console.log(store.getState().dish)
         }
     }
 

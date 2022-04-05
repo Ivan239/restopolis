@@ -5,6 +5,7 @@ import { getDatabase, ref, set } from "firebase/database";
 import newId from '../../components/newId';
 import store from '../../redux/store/store';
 import { toast } from 'react-toastify'
+import { addBooking } from '../../redux/account/actions';
 
 function Book() {
     let minDate = currentDate(4);
@@ -22,6 +23,8 @@ function Book() {
         }
         set(ref(database, `/bookings/${userID}/${newId()}`), data);
         reset()
+        store.dispatch(addBooking(data))
+        console.log(store.getState().account)
         toast.success(`Table reserved`, {
             autoClose: 2400
         })
