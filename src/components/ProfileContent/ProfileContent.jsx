@@ -7,7 +7,6 @@ import emptyProfile from '../../assets/emptyProfile.png'
 function ProfileContent(props) {
     const {
         currentUser,
-        loading,
         logout,
     } = props
     return <div className='profilecontent'>
@@ -19,10 +18,10 @@ function ProfileContent(props) {
                     <ProfileInfo currentUser={currentUser} logout={logout}/>
                 </div>
             </div>
-            <ClosestBooking uid={currentUser.uid} loading={loading}/>
+            <ClosestBooking uid={currentUser.uid}/>
         </div>
         <div className='profile__orders'>
-            <Orders uid={currentUser.uid} loading={loading}/>
+            <Orders uid={currentUser.uid}/>
         </div>
     </div>
 }
