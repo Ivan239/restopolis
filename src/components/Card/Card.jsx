@@ -12,6 +12,7 @@ const Card = (props) => {
         img,
         name,
         price,
+        description,
     } = props
 
     const [showBigCard, setShowBigCard] = useState(false);
@@ -35,7 +36,13 @@ const Card = (props) => {
             </div>
         </div>
         <CSSTransition in={showBigCard} timeout={300} classNames={'card__big'} unmountOnExit >
-            <BigCard name={name} img={img} price={price} handleBigCard={handleBigCard}/>
+            <BigCard
+                name={name}
+                img={img}
+                price={price}
+                handleBigCard={handleBigCard}
+                description={description}
+            />
         </CSSTransition>
     </div>;
 };

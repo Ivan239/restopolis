@@ -69,7 +69,8 @@
 
 .big-card__name {
     text-align: center;
-    margin-top: 8px;
+    margin-top: 12px;
+    line-height: 36px;
 }
 
 .big-card__info {

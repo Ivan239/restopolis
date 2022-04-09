@@ -16,6 +16,7 @@ const BigCard = (props) => {
         name,
         price,
         handleBigCard,
+        description,
     } = props
 
     const propClosing = (e) => {
@@ -89,7 +90,7 @@ const BigCard = (props) => {
             </div>
             <div className='big-card__info'>
                 <h1 className='big-card__name'>{name}</h1>
-                <p className='big-card__description'>Chicken pieces, bell peppers, cheddar and parmesan cheese mix, mozzarella, red onion, sweet chili sauce, alfredo sauce</p>
+                <p className='big-card__description'>{description}</p>
                 <Toppings isSelected={isSelected} />
                 <div className='big-card__button'>
                     <MenuButton onClick={() => addToCart()}>

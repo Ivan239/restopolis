@@ -28,7 +28,7 @@ const Orders = () => {
     return <div className="orders">
         <h3 className='orders__name'>Last order</h3>
         {orders && orders.length ? <div className='orders__items'>
-            <CartItems dishes={newOrders[0].cart} />
+            <CartItems dishes={newOrders[0].cart} isDeletable={false}/>
         </div> : <h2 className='orders__sorry'>Sorry, you have nothing here</h2>}
         <div className='orders__value'>
             <h3 className='orders__total'>Total:</h3>
