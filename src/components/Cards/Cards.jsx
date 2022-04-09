@@ -5,6 +5,7 @@ import './Cards.css';
 const Cards = (props) => {
     const {
         dishes,
+        toppings,
     } = props
     return <div className='cards'>
         {dishes.map((elem) =>
@@ -14,6 +15,7 @@ const Cards = (props) => {
                 price={elem.price}
                 img={elem.img}
                 description={elem.description}
+                toppings={toppings}
             />)}
     </div>;
 };

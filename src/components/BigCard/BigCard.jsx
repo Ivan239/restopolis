@@ -17,6 +17,7 @@ const BigCard = (props) => {
         price,
         handleBigCard,
         description,
+        toppings
     } = props
 
     const propClosing = (e) => {
@@ -91,7 +92,7 @@ const BigCard = (props) => {
             <div className='big-card__info'>
                 <h1 className='big-card__name'>{name}</h1>
                 <p className='big-card__description'>{description}</p>
-                <Toppings isSelected={isSelected} />
+                <Toppings isSelected={isSelected} toppings={toppings}/>
                 <div className='big-card__button'>
                     <MenuButton onClick={() => addToCart()}>
                         <h3 className='big-card__price'>Add to cart for ${fullPrice.toFixed(2)}</h3>

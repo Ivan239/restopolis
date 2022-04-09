@@ -13,6 +13,7 @@ const Card = (props) => {
         name,
         price,
         description,
+        toppings
     } = props
 
     const [showBigCard, setShowBigCard] = useState(false);
@@ -42,6 +43,7 @@ const Card = (props) => {
                 price={price}
                 handleBigCard={handleBigCard}
                 description={description}
+                toppings={toppings}
             />
         </CSSTransition>
     </div>;
