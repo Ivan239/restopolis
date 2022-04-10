@@ -25,7 +25,7 @@ function Cards(props) {
 }
 
 Cards.propTypes = {
-  dishes: PropTypes.arrayOf(PropTypes.object),
+  dishes: PropTypes.array,
   toppings: PropTypes.arrayOf(PropTypes.object),
 };
 

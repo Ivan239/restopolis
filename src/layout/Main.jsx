@@ -8,7 +8,7 @@ import loader from '../assets/loader.gif';
 
 async function dishes() {
   const dbRef = ref(getDatabase());
-  const getPizzas = get(child(dbRef, '/pizzas')).then((snapshot) => {
+  const getItem = (item) => get(child(dbRef, `/${item}`)).then((snapshot) => {
     if (snapshot.exists()) {
       return Object.values(snapshot.val());
     }
@@ -16,16 +16,8 @@ async function dishes() {
   }).catch((error) => {
     console.error(error); // eslint-disable-line no-console
   });
-  const pizzas = await getPizzas;
-  const getToppings = get(child(dbRef, '/toppings/toppings')).then((snapshot) => {
-    if (snapshot.exists()) {
-      return Object.values(snapshot.val());
-    }
-    return {};
-  }).catch((error) => {
-    console.error(error); // eslint-disable-line no-console
-  });
-  const toppings = await getToppings;
+  const pizzas = await getItem('pizzas');
+  const toppings = await getItem('toppings');
   return {
     pizzas,
     toppings,
@@ -40,7 +32,7 @@ function Main() {
     dishes()
       .then((result) => {
         setPizzas(result.pizzas);
-        setToppings(result.toppings);
+        setToppings(result.toppings[0]);
         setLoading(false);
       });
   }

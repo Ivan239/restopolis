@@ -13,7 +13,7 @@ import {
 import { toast } from 'react-toastify';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Profile.module.css';
-import app from '../../firebase';
+import firebase from '../../firebase';
 import store from '../../redux/store/store';
 import {
   deleteAccount, loadBookings, loadOrders, newAccount,
@@ -26,14 +26,14 @@ import animation from './ProfileAnimation.module.css';
 
 function Profile() {
   const provider = new GoogleAuthProvider();
-  const auth = getAuth(app);
+  const auth = getAuth(firebase);
   const [authForm, setAuthForm] = useState(false);
   const [regForm, setRegForm] = useState(false);
   const [currentUser, setCurrentUser] = useState(store.getState().account);
   const [isLogged, setIsLogged] = useState(!!Object.keys(currentUser).length);
   async function getData(uid) {
     const dbRef = ref(getDatabase());
-    const bookings = get(child(dbRef, `bookings/${uid}`)).then((snapshot) => {
+    const getItem = (item) => get(child(dbRef, `${item}/${uid}`)).then((snapshot) => {
       if (snapshot.exists()) {
         return Object.values(snapshot.val());
       }
@@ -41,16 +41,8 @@ function Profile() {
     }).catch((error) => {
       console.error(error); // eslint-disable-line no-console
     });
-    const bookingsResult = await bookings;
-    const orders = get(child(dbRef, `deliveries/${uid}`)).then((snapshot) => {
-      if (snapshot.exists()) {
-        return Object.values(snapshot.val());
-      }
-      return [];
-    }).catch((error) => {
-      console.error(error); // eslint-disable-line no-console
-    });
-    const ordersResult = await orders;
+    const bookingsResult = await getItem('bookings');
+    const ordersResult = await getItem('diliveries');
     return {
       orders: ordersResult || [],
       bookings: bookingsResult || [],
@@ -78,9 +70,7 @@ function Profile() {
       .then((result) => {
         userAuthorised(result);
       }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        toast.error(`${errorCode} ${errorMessage}`, {
+        toast.error(`${error.code} ${error.message}`, {
           autoClose: 2400,
         });
       });
@@ -97,9 +87,7 @@ function Profile() {
       }).then((result) => {
         userAuthorised(result);
       }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        toast.error(`${errorCode} ${errorMessage}`, {
+        toast.error(`${error.code} ${error.message}`, {
           autoClose: 2400,
         });
       });
@@ -111,9 +99,7 @@ function Profile() {
         userAuthorised(userCredential);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        toast.error(`${errorCode} ${errorMessage}`, {
+        toast.error(`${error.code} ${error.message}`, {
           autoClose: 2400,
         });
       });
@@ -127,12 +113,12 @@ function Profile() {
     });
   };
 
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
+  useEffect(
+    () => store.subscribe(() => {
       setCurrentUser(store.getState().account);
-    });
-    return unsubscribe;
-  }, []);
+    }),
+    [],
+  );
 
   return (
     <div className={styles.profile}>

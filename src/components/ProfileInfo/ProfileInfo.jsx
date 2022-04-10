@@ -11,13 +11,13 @@ function ProfileInfo(props) {
   } = props;
   const [bookingAmount, setBookingAmount] = useState(store.getState().account.bookingAmount);
   const [orderAmount, setOrderAmount] = useState(store.getState().account.orderAmount);
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
+  useEffect(
+    () => store.subscribe(() => {
       setBookingAmount(store.getState().account.bookingAmount);
       setOrderAmount(store.getState().account.orderAmount);
-    });
-    return unsubscribe;
-  }, []);
+    }),
+    [],
+  );
   return (
     <div className={styles['profile-info']}>
       <p className={styles.name}>{currentUser.displayName || 'Ivan Ivanov'}</p>

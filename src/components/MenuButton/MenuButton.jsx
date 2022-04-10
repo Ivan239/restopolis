@@ -23,7 +23,7 @@ MenuButton.propTypes = {
 
 MenuButton.defaultProps = {
   children: '',
-  onClick: () => {},
+  onClick: function foo() {},
   type: '',
 };
 

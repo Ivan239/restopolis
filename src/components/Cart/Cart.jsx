@@ -5,12 +5,9 @@ import styles from './Cart.module.css';
 
 function Cart() {
   const [items, setItems] = useState(store.getState().cart);
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
-      setItems(store.getState().cart);
-    });
-    return unsubscribe;
-  }, []);
+  useEffect(() => store.subscribe(() => {
+    setItems(store.getState().cart);
+  }), []);
   const price = store.getState().cart.reduce((prev, current) => prev + current.price, 0);
   return (
     <div className={styles.cart}>

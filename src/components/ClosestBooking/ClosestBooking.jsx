@@ -8,8 +8,8 @@ function ClosestBooking() {
   const currentDate = now.toISOString().slice(0, 16);
   let nextBook = {};
   const [bookings, setBookings] = useState(store.getState().account.bookings);
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
+  useEffect(
+    () => store.subscribe(() => {
       const newBookings = store.getState().account.bookings;
       if (newBookings) {
         newBookings.sort((a, b) => {
@@ -23,13 +23,13 @@ function ClosestBooking() {
         });
       }
       setBookings(newBookings);
-    });
-    return unsubscribe;
-  }, []);
+    }),
+    [],
+  );
   if (bookings) {
-    for (let i = 0; i < bookings.length; i += 1) {
-      if (bookings[i].Date.localeCompare(currentDate) > 0) {
-        nextBook = bookings[i];
+    for (const elem of bookings) { // eslint-disable-line
+      if (elem.Date.localeCompare(currentDate) > 0) { // sonarcube recommended to write with for of
+        nextBook = elem;
         break;
       }
     }

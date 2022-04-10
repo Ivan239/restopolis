@@ -13,7 +13,7 @@ function Registration(props) {
     setRegForm,
     authoriseGoogle,
   } = props;
-  const passwordPattern = /^(?=.*[0-9])(?=.*[a-z]).{8,}$/i;
+  const passwordPattern = /^(?=.*\d)(?=.*[a-z]).{8,}$/i;
   const {
     register,
     handleSubmit,

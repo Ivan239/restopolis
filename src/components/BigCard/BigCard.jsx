@@ -57,13 +57,13 @@ function BigCard(props) {
     handleBigCard();
   };
 
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
+  useEffect(
+    () => store.subscribe(() => {
       const addPrice = store.getState().dish.reduce((prev, current) => prev + current.price, 0);
       setFullPrice(price + addPrice);
-    });
-    return unsubscribe;
-  }, [price]);
+    }),
+    [price],
+  );
 
   const toggleSize = (size) => {
     if (size !== big) {

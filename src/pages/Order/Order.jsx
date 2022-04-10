@@ -10,7 +10,7 @@ import store from '../../redux/store/store';
 import { deleteCart } from '../../redux/cart/actions';
 import { addOrder } from '../../redux/account/actions';
 
-function Delivery() {
+function Order() {
   const minDate = currentDate(2);
   const {
     register,
@@ -121,4 +121,4 @@ function Delivery() {
   );
 }
 
-export default Delivery;
+export default Order;

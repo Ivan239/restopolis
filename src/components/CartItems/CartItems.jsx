@@ -26,7 +26,7 @@ function CartItems(props) {
 }
 
 CartItems.propTypes = {
-  dishes: PropTypes.arrayOf(PropTypes.object),
+  dishes: PropTypes.array,
   isDeletable: PropTypes.bool,
 };
 

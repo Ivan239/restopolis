@@ -5,12 +5,12 @@ import styles from './Orders.module.css';
 
 function Orders() {
   const [orders, setOrders] = useState(store.getState().account.orders);
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
+  useEffect(
+    () => store.subscribe(() => {
       setOrders(store.getState().account.orders);
-    });
-    return unsubscribe;
-  }, []);
+    }),
+    [],
+  );
   const newOrders = orders;
   let price = 0;
   if (newOrders && orders[0]) {

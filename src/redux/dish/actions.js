@@ -1,11 +1,6 @@
 import {
-  ADD_TOPPING, CHANGE_SIZE, CLEAR_TOPPINGS, DELETE_TOPPING,
+  ADD_TOPPING, CLEAR_TOPPINGS, DELETE_TOPPING,
 } from './types';
-
-export const changeSize = (newSize) => ({
-  type: CHANGE_SIZE,
-  payload: newSize,
-});
 
 export const deleteTopping = (toppingId) => ({
   type: DELETE_TOPPING,

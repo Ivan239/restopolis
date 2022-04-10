@@ -5,12 +5,9 @@ import styles from './CartButton.module.css';
 
 function CartButton() {
   const [amount, setAmount] = useState(store.getState().cart.length || 0);
-  useEffect(() => {
-    const unsubscribe = store.subscribe(() => {
-      setAmount(store.getState().cart.length);
-    });
-    return unsubscribe;
-  }, []);
+  useEffect(() => store.subscribe(() => {
+    setAmount(store.getState().cart.length);
+  }), []);
 
   return (
     <NavLink to="/order" className={styles.link}>

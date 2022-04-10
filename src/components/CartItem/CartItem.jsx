@@ -17,9 +17,9 @@ function CartItem(props) {
 
   const size = () => {
     if (toppings) {
-      for (let i = 0; i < toppings.length; i += 1) {
-        if (toppings[i].id === 'Small' || toppings[i].id === 'Big') {
-          return toppings[i].id;
+      for (const elem of toppings) { // eslint-disable-line
+        if (elem.id === 'Small' || elem.id === 'Big') { // sonarcube recommended to write with for of (eslint not)
+          return elem.id;
         }
       }
     }
