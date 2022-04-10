@@ -1,5 +1,5 @@
 import MenuButton from '../MenuButton/MenuButton'
-import './Registration.css'
+import styles from './Registration.module.css'
 import google from '../../assets/google.jpg'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
@@ -35,14 +35,14 @@ function Registration(props) {
         return errors.Name ? toastError('Name') :
             errors.Email ? toastError('E-mail') : null
     }
-    return <div className="reg">
-        <img src={back} alt='back' className='reg__back' onClick={() => props.setRegForm(false)}/>
-        <form className='reg__form' onSubmit={handleSubmit(onSubmit)}>
+    return <div className={styles.reg}>
+        <img src={back} alt='back' className={styles.back} onClick={() => props.setRegForm(false)}/>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <h2>Sign Up</h2>
             <p>Name:</p>
             <input
                 placeholder='Ivan Ivanov'
-                className='reg__field'
+                className={styles.field}
                 id='Name'
                 aria-invalid={errors.Name ? "true" : "false"}
                 {...register("Name", { required: true })} 
@@ -51,28 +51,28 @@ function Registration(props) {
             <input
                 type='email'
                 placeholder='example@website.com'
-                className='reg__field'
+                className={styles.field}
                 id='Email'
                 aria-invalid={errors.Email ? "true" : "false"}
                 {...register("Email", { required: true })}
             />
             <p>Password:</p>
             <input
-                className='reg__field'
+                className={styles.field}
                 type='password'
                 placeholder='********'
                 id='Password'
                 aria-invalid={errors.Password ? "true" : "false"}
                 {...register("Password", { required: true })}
             />
-            <div className="reg__enter">
-                <div className="reg__button">
+            <div className={styles.enter}>
+                <div className={styles.button}>
                     <MenuButton onClick={() => checkErrors(errors)}>
                         Submit
                     </MenuButton>
                 </div>
                 <p>or</p>
-                <img src={google} alt='google' className='reg__google' onClick={() => props.authoriseGoogle()} />
+                <img src={google} alt='google' className={styles.google} onClick={() => props.authoriseGoogle()} />
             </div >
         </form>
     </div >

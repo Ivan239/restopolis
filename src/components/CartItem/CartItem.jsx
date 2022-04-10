@@ -1,5 +1,5 @@
 import React from 'react';
-import './CartItem.css';
+import styles from './CartItem.module.css';
 import close from '../../assets/close.svg'
 import { deleteDish } from '../../redux/cart/actions';
 import store from '../../redux/store/store';
@@ -28,18 +28,18 @@ const CartItem = (props) => {
         store.dispatch(deleteDish(id))
     }
 
-    return <div className='cart-item'>
-        {isDeletable ? <img src={close} alt='delete' className='cart-item__delete' onClick={() => deleteItem()}/> : null}
-        <img className='cart-item__image' src={img} alt={name} />
-        <div className='cart-item__content'>
-            <h3 className='cart-item__name'>{name} &mdash; {size() || 'Small'}</h3>
-            <div className='cart-item__toppings'>
+    return <div className={styles['cart-item']}>
+        {isDeletable ? <img src={close} alt='delete' className={styles.delete} onClick={() => deleteItem()}/> : null}
+        <img className={styles.image} src={img} alt={name} />
+        <div className={styles.content}>
+            <h3 className={styles.name}>{name} &mdash; {size() || 'Small'}</h3>
+            <div className={styles.toppings}>
                 {toppings ? toppings.map((topping) => {
                     return (topping.id !== 'Small' && topping.id !== 'Big') ?
-                        <p key={topping.id} className='cart-item__topping'>+ {topping.name}</p> : null
+                        <p key={topping.id} className={styles.topping}>+ {topping.name}</p> : null
                 }) : null}
             </div>
-            <h4 className='cart-item__price'>${price.toFixed(2)}</h4>
+            <h4 className={styles.price}>${price.toFixed(2)}</h4>
         </div>
     </div>;
 };

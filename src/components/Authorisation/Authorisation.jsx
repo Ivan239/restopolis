@@ -1,5 +1,5 @@
 import MenuButton from '../MenuButton/MenuButton'
-import './Authorisation.css'
+import styles from './Authorisation.module.css'
 import google from '../../assets/google.jpg'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
@@ -23,36 +23,36 @@ function Authorisation(props) {
         return errors.Email ? toastError('E-mail') :
             errors.Password ? toastError('Password') : null
     }
-    return <div className="auth">
-        <img src={back} alt='back' className='auth__back' onClick={() => props.setAuthForm(false)}/>
-        <form className='auth__form' onSubmit={handleSubmit(onSubmit)}>
+    return <div className={styles.auth}>
+        <img src={back} alt='back' className={styles.back} onClick={() => props.setAuthForm(false)}/>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <h2>Sign In</h2>
             <p>E-mail:</p>
             <input
                 type='email'
                 placeholder='example@website.com'
-                className='auth__field'
+                className={styles.field}
                 id='Email'
                 aria-invalid={errors.Email ? "true" : "false"}
                 {...register("Email", { required: true })}
             />
             <p>Password:</p>
             <input
-                className='auth__field'
+                className={styles.field}
                 type='password'
                 placeholder='********'
                 id='Password'
                 aria-invalid={errors.Password ? "true" : "false"}
                 {...register("Password", { required: true })}
             />
-            <div className="auth__enter">
-                <div className="auth__button">
+            <div className={styles.enter}>
+                <div className={styles.button}>
                     <MenuButton onClick={() => checkErrors(errors)}>
                         Submit
                     </MenuButton>
                 </div>
                 <p>or</p>
-                <img src={google} alt='google' className='auth__google' onClick={() => props.authoriseGoogle()} />
+                <img src={google} alt='google' className={styles.google} onClick={() => props.authoriseGoogle()} />
             </div >
         </form>
     </div >

@@ -1,8 +1,8 @@
 import React from 'react';
-import './MenuButton.css';
+import styles from './MenuButton.module.css';
 
 const MenuButton = (props) => {
-    return <button className="menu-button" type={props.type} onClick={props.onClick}>
+    return <button className={styles['menu-button']} type={props.type} onClick={props.onClick}>
         {props.children}
     </button>;
 };

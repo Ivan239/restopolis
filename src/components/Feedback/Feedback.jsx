@@ -1,5 +1,5 @@
 import React from 'react';
-import './Feedback.css';
+import styles from './Feedback.module.css';
 import CloseIcon from '../CloseIcon/CloseIcon';
 import { useForm } from 'react-hook-form'
 import { getDatabase, ref, set } from "firebase/database";
@@ -22,36 +22,36 @@ const Feedback = (props) => {
         props.handleCard()
     };
 
-    return <div className='feedback' onClick={() => props.handleCard()}>
-        <div className='feedback__content' onClick={(e) => handleFeedback(e)}>
+    return <div className={styles.feedback} onClick={() => props.handleCard()}>
+        <div className={styles.content} onClick={(e) => handleFeedback(e)}>
             <CloseIcon handleCard={props.handleCard} />
-            <form onSubmit={handleSubmit(onSubmit)} className='feedback__form'>
-                <h2 className='feedback__header'>Feedback form</h2>
-                <div className='feedback__personal'>
-                    <div className='feedback__inputbox'>
-                        <p className='feedback__name'>Name</p>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                <h2 className={styles.header}>Feedback form</h2>
+                <div className={styles.personal}>
+                    <div className={styles.inputbox}>
+                        <p className={styles.name}>Name</p>
                         <input
-                            className='feedback__input'
+                            className={styles.input}
                             placeholder='Ivan'
                             {...register("Name", { required: true })} />
                     </div>
-                    <div className='feedback__inputbox'>
-                        <p className='feedback__email'>E-Mail</p>
+                    <div className={styles.inputbox}>
+                        <p className={styles.email}>E-Mail</p>
                         <input
                             type='email'
-                            className='feedback__input'
+                            className={styles.input}
                             placeholder='example@website.com'
                             {...register("Email", { required: true })} />
                     </div>
                 </div>
-                <div className='feedback__textareabox'>
-                    <p className='feedback__text'>What should we know?</p>
+                <div className={styles.textareabox}>
+                    <p className={styles.text}>What should we know?</p>
                     <textarea
-                        className='feedback__textarea'
+                        className={styles.textarea}
                         placeholder='You are the best...'
                         {...register("Feedback", { required: true })} />
                 </div>
-                <input className='feedback__submit' type="submit" value='Send' />
+                <input className={styles.submit} type="submit" value='Send' />
             </form>
         </div>
     </div>;

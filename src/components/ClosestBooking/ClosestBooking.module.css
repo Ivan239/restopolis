@@ -1,17 +1,17 @@
-.nextbooking__title {
+.title {
     text-align: center;
 }
 
-.nextbooking__info {
+.info {
     display: flex;
     justify-content: space-between;
 }
 
-.nextbooking__text {
+.text {
     text-align: right;
 }
 
-.nextbooking__error {
+.error {
     margin-top: 20px;
     text-align: center;
 }

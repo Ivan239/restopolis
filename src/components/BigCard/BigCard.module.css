@@ -9,7 +9,7 @@
     cursor: auto;
 }
 
-.big-card__content {
+.content {
     width: 850px;
     height: 550px;
     background-color: white;
@@ -20,21 +20,21 @@
     display: flex;
 }
 
-.big-card__description {
+.description {
     margin: 0;
 }
 
-.big-card__image {
+.image {
     width: 80%;
     margin-left: 10%;
     margin-top: 20px;
 }
 
-.big-card__left {
+.left {
     width: 48%;
 }
 
-.big-card__size {
+.size {
     margin: 76px auto 0 auto;
     height: 30px;
     width: 70%;
@@ -45,7 +45,7 @@
     cursor: pointer;
 }
 
-.big-card__small {
+.small {
     padding-top: 4px;
     margin: 0;
     text-align: center;
@@ -57,7 +57,7 @@
     box-shadow: rgba(6, 5, 50, 0.12) 1px 1px 5px;
 }
 
-.big-card__big {
+.big {
     margin: 0;
     border-radius: 25px;
     border: none;
@@ -67,79 +67,31 @@
     box-sizing: border-box;
 }
 
-.big-card__name {
+.name {
     text-align: center;
     margin-top: 12px;
     line-height: 36px;
 }
 
-.big-card__info {
+.info {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.big-card__button {
+.button {
     height: 45px;
     margin-bottom: 12px;
 }
 
-.big-card__close:hover {
+.close:hover {
     right: -20px;
     top: 10px;
     width: 3.5%;
     height: auto;
 }
 
-.big-card-size-enter-active {
-    border: rgb(226, 226, 233);;
-    background-color: rgb(226, 226, 233);
-    box-shadow: none;
-}
-
-.big-card-size-enter-done {
-    border: 1px solid rgb(226, 226, 233);
-    background-color: white;
-    box-shadow: rgba(6, 5, 50, 0.12) 1px 1px 5px;
-    transition: background-color 300ms, box-shadow 300ms;
-}
-
-.big-card-size-exit-active {
-    border: 1px solid rgb(226, 226, 233);
-    background-color: white;
-    box-shadow: rgba(6, 5, 50, 0.12) 1px 1px 5px;
-}
-
-.big-card-size-exit-done {
-    border: none;
-    background-color: rgb(226, 226, 233);
-    box-shadow: none;
-    transition: background-color 300ms, box-shadow 300ms;
-}
-
-.big-card-image-enter-active {
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 20px;
-}
-
-.big-card-image-enter-done {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 10px;
-    transition: width 300ms, margin-left 300ms, margin-top 300ms;
-}
-
-.big-card-image-exit-active {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 10px;
-}
-
-.big-card-image-exit-done {
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 20px;
-    transition: width 300ms, margin-left 300ms, margin-top 300ms;
+.price {
+    color: white;
 }

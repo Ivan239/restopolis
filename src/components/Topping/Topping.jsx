@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import './Topping.css'
+import styles from './Topping.module.css';
+import animation from './ToppingAnimation.module.css'
 import { useState } from 'react';
 import store from '../../redux/store/store';
 import { addTopping, deleteTopping } from '../../redux/dish/actions';
@@ -29,13 +30,13 @@ const Topping = (props) => {
         setChosenTopping(false)
     }, [isSelected])
 
-    return <CSSTransition in={chosenTopping} timeout={300} classNames={'topping__animation'} >
-        <div className={'topping'} onClick={() => handleTopping()}>
-            <img className='topping__image' src={img} alt={`${name}`} />
-            <div className='topping__text'>
-                <div className='topping__info'>
-                    <h3 className='topping__name'>{name}</h3>
-                    <h4 className='topping__price'>${price}</h4>
+    return <CSSTransition in={chosenTopping} timeout={300} classNames={animation} >
+        <div className={styles.topping} onClick={() => handleTopping()}>
+            <img className={styles.image} src={img} alt={`${name}`} />
+            <div className={styles.text}>
+                <div className={styles.info}>
+                    <h3 className={styles.name}>{name}</h3>
+                    <h4 className={styles.price}>${price}</h4>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-.book__title {
+.title {
     text-align: center;
 }
 
@@ -8,7 +8,7 @@
     flex-direction: row;
 }
 
-.book__submit {
+.submit {
     background-color: rgb(24, 24, 24);
     color: white;
     cursor: pointer;
@@ -18,10 +18,10 @@
     transition-timing-function: ease;
 }
 
-.book__submit:hover {
+.submit:hover {
     background-color: rgb(42, 42, 42);
 }
 
-.book__form p {
+.form p {
     margin-left: 16px;
 }

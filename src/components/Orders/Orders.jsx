@@ -1,6 +1,6 @@
 import store from '../../redux/store/store'
 import CartItems from '../CartItems/CartItems'
-import './Orders.css'
+import styles from './Orders.module.css'
 import React, { useEffect, useState } from 'react';
 
 const Orders = () => {
@@ -25,14 +25,14 @@ const Orders = () => {
         })
         price = newOrders[0].cart.reduce((prev, current) => prev + current.price, 0)
     }
-    return <div className="orders">
-        <h3 className='orders__name'>Last order</h3>
-        {orders && orders.length ? <div className='orders__items'>
+    return <div className={styles.orders}>
+        <h3 className={styles.name}>Last order</h3>
+        {orders && orders.length ? <div className={styles.items}>
             <CartItems dishes={newOrders[0].cart} isDeletable={false}/>
-        </div> : <h2 className='orders__sorry'>Sorry, you have nothing here</h2>}
-        <div className='orders__value'>
-            <h3 className='orders__total'>Total:</h3>
-            <h3 className='orders__price'>${price.toFixed(2)}</h3>
+        </div> : <h2 className={styles.sorry}>Sorry, you have nothing here</h2>}
+        <div className={styles.value}>
+            <h3 className={styles.total}>Total:</h3>
+            <h3 className={styles.price}>${price.toFixed(2)}</h3>
         </div>
     </div >
 }

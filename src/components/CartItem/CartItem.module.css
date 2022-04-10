@@ -10,7 +10,7 @@
     margin-left: 2%;
 }
 
-.cart-item__delete {
+.delete {
     cursor: pointer;
     height: 12px;
     position: absolute;
@@ -18,15 +18,15 @@
     top: 10px;
 }
 
-.cart-item__image {
+.image {
     padding: 9px 0 9px 9px;
 }
 
-.cart-item__topping {
+.topping {
     margin: 0 0 0 0;
 }
 
-.cart-item__toppings {
+.toppings {
     height: 60px;
     flex-direction: column;
     flex-wrap: wrap;
@@ -34,7 +34,7 @@
     gap: 0 12px;
 }
 
-.cart-item__content {
+.content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,6 +42,6 @@
     padding-top: 8px;
 }
 
-.cart-item__name {
+.name {
     line-height: 20px;
 }

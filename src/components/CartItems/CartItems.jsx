@@ -1,13 +1,13 @@
 import React from 'react';
 import CartItem from '../CartItem/CartItem';
-import './CartItems.css';
+import styles from './CartItems.module.css';
 
 const CartItems = (props) => {
     const {
         dishes,
         isDeletable,
     } = props
-    return <div className='cart-items'>
+    return <div className={styles['cart-items']}>
         {dishes.map((elem) =>
             <CartItem
                 key={elem.id}

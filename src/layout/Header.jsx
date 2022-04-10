@@ -1,4 +1,4 @@
-import './Header.css'
+import styles from './Header.module.css'
 import HeaderButton from '../components/HeaderButton/HeaderButton'
 import CartButton from '../components/CartButton/CartButton';
 import { NavLink } from 'react-router-dom'
@@ -15,13 +15,13 @@ function firstUpper(string) {
 }
 
 function Header() {
-    return <div className="header">
-        <NavLink to='/' className='header__name'>
+    return <div className={styles.header}>
+        <NavLink to='/' className={styles.name}>
             <h1>
                 R e s t o p o l i s
             </h1>
         </NavLink>
-        <div className='header__buttons'>
+        <div className={styles.buttons}>
             {barButtons.map((elem) => {
                 return elem === 'menu' ?
                 <NavLink to={`/`} key={elem}>

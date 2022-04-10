@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 import Header from './layout/Header'
 import Main from './layout/Main'
 import Footer from './layout/Footer'
@@ -27,10 +27,10 @@ function App() {
       JSON.stringify(store.getState().cart));
   })
   return (
-    <div className="app">
+    <div className={styles.app}>
       <BrowserRouter basename="/restopolis">
         <Header />
-        <div className='content'>
+        <div className={styles.content}>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/order" element={<Order />} />

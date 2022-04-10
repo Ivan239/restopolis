@@ -1,4 +1,4 @@
-import './ClosestBooking.css'
+import styles from './ClosestBooking.module.css'
 import React, { useEffect, useState } from 'react';
 import store from '../../redux/store/store';
 
@@ -34,19 +34,19 @@ function ClosestBooking() {
             }
         }
     }
-    return <div className='nextbooking'>
-        <h3 className='nextbooking__title'>Next booking</h3>
+    return <div className={styles.nextbooking}>
+        <h3 className={styles.title}>Next booking</h3>
         {store.getState().account.bookings && Object.keys(nextBook).length > 0 ?
-            <div className='nextbooking__content'>
-                <div className='nextbooking__info'>
-                    <div className='nextbooking__names'>
+            <div className={styles.content}>
+                <div className={styles.info}>
+                    <div className={styles.names}>
                         <p>Name: </p>
                         <p>Phone: </p>
                         <p>E-Mail: </p>
                         <p>Amount of people: </p>
                         <p>Date: </p>
                     </div>
-                    <div className='nextbooking__text'>
+                    <div className={styles.text}>
                         <p>{nextBook.Name}</p>
                         <p>{nextBook.Phone}</p>
                         <p>{nextBook.Email}</p>
@@ -55,7 +55,7 @@ function ClosestBooking() {
                     </div>
                 </div>
             </div> :
-            <div className='nextbooking__error'>
+            <div className={styles.error}>
                 Sorry, you have no bookings
             </div>}
     </div>

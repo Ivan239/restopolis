@@ -7,14 +7,14 @@
     margin-top: 36px;
 }
 
-.footer__element {
+.element {
     margin-left: 20px;
     margin-top: 20px;
     color: white;
     margin-right: 20px;
 }
 
-.footer__info {
+.info {
     height: 160px;
     display: flex;
     flex-wrap: wrap;
@@ -28,24 +28,6 @@
     color: white;
 }
 
-.footer__feedback-enter {
-    opacity: 0;
-}
-
-.footer__feedback-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-}
-
-.footer__feedback-exit {
-    opacity: 1;
-}
-
-.footer__feedback-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-}
-
-#footer__feedback {
+#feedback {
     cursor: pointer;
 }

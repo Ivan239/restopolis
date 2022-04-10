@@ -1,0 +1,21 @@
+.enterActive {
+    border: 1px solid rgb(24, 24, 24, 0.6);
+    box-shadow: rgba(6, 5, 50, 0) 0px 4px 16px;
+    transition: border 300ms, box-shadow 300ms ease-in-out;
+}
+
+.enterDone {
+    border: 1px solid rgb(24, 24, 24, 0.6);
+    box-shadow: rgba(6, 5, 50, 0) 0px 4px 16px;
+}
+
+.exitActive {
+    border: 1px solid white;
+    transition: border 300ms, box-shadow 300ms ease-in-out;
+    box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 16px;
+}
+
+.exitDone {
+    border: 1px solid white;    
+    box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 16px;
+}

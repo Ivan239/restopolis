@@ -1,7 +1,8 @@
-import './Footer.css'
+import styles from './Footer.module.css'
 import Feedback from '../components/Feedback/Feedback'
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group'
+import animation from './FooterAnimation.module.css'
 
 function Footer() {
 
@@ -11,19 +12,19 @@ function Footer() {
         setShowFeedback(!showFeedback)
     }
 
-    return <div className='footer'>
-        <div className='footer__info'>
-            <div className='footer__left'>
-                <h3 className='footer_title'>Contacts:</h3>
-                <p className='footer__element' id='footer__phone'>+79810001122</p>
-                <p className='footer__element' id='footer__email'>contact@restopolis.ru</p>
+    return <div className={styles.footer}>
+        <div className={styles.info}>
+            <div className={styles.left}>
+                <h3 className={styles.title}>Contacts:</h3>
+                <p className={styles.element} id={styles.phone}>+79810001122</p>
+                <p className={styles.element} id={styles.email}>contact@restopolis.ru</p>
             </div>
 
-            <div className='footer__right'>
-                <h3 className='footer_title'>Info:</h3>
-                <p className='footer__element' id='footer__address'>Innopolis, Universitetskaya st., 1/1</p>
-                <p className='footer__element' id='footer__feedback' onClick={() => handleFeedback()}>Leave feedback</p>
-                <CSSTransition in={showFeedback} timeout={300} classNames={'footer__feedback'} unmountOnExit >
+            <div className={styles.right}>
+                <h3 className={styles.title}>Info:</h3>
+                <p className={styles.element} id={styles.address}>Innopolis, Universitetskaya st., 1/1</p>
+                <p className={styles.element} id={styles.feedback} onClick={() => handleFeedback()}>Leave feedback</p>
+                <CSSTransition in={showFeedback} timeout={300} classNames={animation} unmountOnExit >
                     <Feedback handleCard={handleFeedback}/>
                 </CSSTransition>
             </div>

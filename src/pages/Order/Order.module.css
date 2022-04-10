@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-.delivery {
+.order {
     max-height: 586px;
     width: 100%;
     display: flex;
@@ -10,21 +10,21 @@
     flex-direction: row;
 }
 
-.delivery__cart {
+.cart {
     width: 50%;
     max-height: 100%;
 }
 
-.delivery__fields {
+.fields {
     width: 50%;
 }
 
-.delivery__form {
+.form {
     margin: auto auto;
     width: 50%;
 }
 
-.delivery__submit {
+.submit {
     background-color: rgb(24, 24, 24);
     color: white;
     cursor: pointer;
@@ -34,15 +34,15 @@
     transition-timing-function: ease;
 }
 
-.delivery__submit:hover {
+.submit:hover {
     background-color: rgb(42, 42, 42);
 }
 
-.delivery__form p {
+.form p {
     margin-left: 16px;
 }
 
-.delivery label {
+.order label {
     display:inline-block;
     margin-top: 20px;
     font-family: Verdana, Geneva, sans-serif;
@@ -54,6 +54,6 @@
     color: rgb(24, 24, 24);
 }
 
-.delivery label input[type=checkbox] {
+.order label input[type=checkbox] {
     margin: 0 12px 0 3px;
 }

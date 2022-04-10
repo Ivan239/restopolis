@@ -14,13 +14,13 @@
     background-color: rgb(42, 42, 42);
 }
 
-.cart-button__text {
+.text {
     color: white;
     padding-left: 24px;
     padding-right: 24px;
 }
 
 
-.cart-button__link {
+.link {
     text-decoration: none;
 }

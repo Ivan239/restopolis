@@ -1,0 +1,25 @@
+.enterActive {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+.enterDone {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    transition: width 300ms, margin-left 300ms, margin-top 300ms;
+}
+
+.exitActive {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+.exitDone {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    transition: width 300ms, margin-left 300ms, margin-top 300ms;
+}

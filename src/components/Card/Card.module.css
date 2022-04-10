@@ -5,7 +5,7 @@
     cursor: pointer;
 }
 
-.card__image {
+.image {
     width: 90%;
     position: relative;
     margin-left: calc(22.5% / 4);
@@ -15,19 +15,19 @@
     transition-timing-function: ease;
 }
 
-.card:hover .card__image {
+.card:hover .image {
     margin-bottom: 15px;
     margin-top: 5px;
 }
 
-.card__button {
+.button {
     width: 100px;
     margin-top: auto;
     margin-bottom: auto;
     height: 36px;
 }
 
-.card__text {
+.text {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -51,4 +51,8 @@
 .card__big-exit-active {
     opacity: 0;
     transition: opacity 300ms;
+}
+
+.button-text {
+    color: white;
 }

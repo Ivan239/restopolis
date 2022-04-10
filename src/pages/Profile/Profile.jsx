@@ -1,4 +1,4 @@
-import './Profile.css'
+import styles from './Profile.module.css'
 import app from '../../firebase';
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import store from '../../redux/store/store';
@@ -11,8 +11,10 @@ import MenuButton from '../../components/MenuButton/MenuButton';
 import Authorisation from '../../components/Authorisation/Authorisation';
 import Registration from '../../components/Registration/Registration';
 import { CSSTransition } from 'react-transition-group'
+import animation from './ProfileAnimation.module.css'
 
 function Profile() {
+    console.log(styles)
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
     const [authForm, setAuthForm] = useState(false)
@@ -61,7 +63,7 @@ function Profile() {
                     photoURL: photo
                 })
                 return userCredential
-            }).then((result) => {                
+            }).then((result) => {
                 userAuthorised(result)
             }).catch((error) => {
                 const errorCode = error.code;
@@ -116,17 +118,22 @@ function Profile() {
         return unsubscribe
     }, [])
 
-    return <div className="profile">
-        <div className='profile__content'>
+    return <div className={styles.profile}>
+        <div className={styles.content}>
             <ProfileContent currentUser={currentUser} logout={logout} />
-            <CSSTransition in={!isLogged} timeout={1000} classNames={'profile__auth'} unmountOnExit >
-                <div className='profile__form'>
+            <CSSTransition
+                in={!isLogged}
+                timeout={1000}
+                classNames={animation}
+                unmountOnExit
+                 >
+                <div className={styles.form}>
                     {
-                        !authForm && !regForm ? <div className='profile__formcontent'>
-                            <div className='profile__sign'>
+                        !authForm && !regForm ? <div className={styles.formcontent}>
+                            <div className={styles.sign}>
                                 <MenuButton onClick={() => setRegForm(true)}>Sign Up</MenuButton>
                             </div>
-                            <div className='profile__sign'>
+                            <div className={styles.sign}>
                                 <MenuButton onClick={() => setAuthForm(true)}>Sign In</MenuButton>
                             </div>
                         </div> : authForm ? <Authorisation authorise={authorise} authoriseGoogle={authoriseGoogle} setAuthForm={setAuthForm} /> :

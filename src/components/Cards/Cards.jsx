@@ -1,13 +1,13 @@
 import React from 'react';
 import Card from '../Card/Card'
-import './Cards.css';
+import styles from './Cards.module.css';
 
 const Cards = (props) => {
     const {
         dishes,
         toppings,
     } = props
-    return <div className='cards'>
+    return <div className={styles.cards}>
         {dishes.map((elem) =>
             <Card
                 key={elem.id}

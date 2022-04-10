@@ -4,7 +4,7 @@
     position: relative;
 }
 
-.reg__back {
+.back {
     cursor: pointer;
     top: 20px;
     left: 18px;
@@ -13,7 +13,7 @@
     width: 16px;
 }
 
-.reg__form {
+.form {
     background-color: white;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -25,7 +25,7 @@
     justify-content: space-around;
 }
 
-.reg__field {
+.field {
     width: 80%;
 }
 
@@ -39,11 +39,11 @@
     line-height: 30px;
 }
 
-.reg__button {
+.button {
     width: 100%;
 }
 
-.reg__google {
+.google {
     height: 34px;
     cursor: pointer;
     border: 1px solid rgb(226, 226, 233);
@@ -55,16 +55,16 @@
     transition-timing-function: ease;
 }
 
-.reg__google:hover {
+.google:hover {
     box-shadow: rgba(6, 5, 50, 0.2) 1px 1px 4px;
 }
 
-.reg__enter p {
+.enter p {
     padding: 6px 0 0 10px;
     width: 36px;
 }
 
-.reg__enter {
+.enter {
     width: 50%;
     height: 34px;
     display: flex;

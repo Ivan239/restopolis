@@ -1,12 +1,12 @@
-.profile-info__email {
+.email {
     font-size: 16px;
 }
 
-.profile-info__setbtn {
+.setbtn {
     height: 30px;
 }
 
-.profile-info__settxt {
+.settxt {
     color: white;
     margin: 0;
 }
@@ -21,7 +21,7 @@
     margin: 0;
 }
 
-.profile-info__name {
+.name {
     font-size: 20px;
     margin: 0;
 }

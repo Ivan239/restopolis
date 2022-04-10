@@ -1,0 +1,32 @@
+.profilecontent {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    text-align: center;
+}
+
+.user {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo {
+    border-radius: 20px;
+    height: 200px;
+    width: 200px;
+}
+
+.orders {
+    width: 40%;
+}

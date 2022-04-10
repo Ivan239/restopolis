@@ -1,4 +1,4 @@
-import './Order.css'
+import styles from './Order.module.css'
 import currentDate from '../../components/currentDate'
 import Cart from '../../components/Cart/Cart'
 import { useForm } from 'react-hook-form'
@@ -48,34 +48,34 @@ function Delivery() {
             errors.Phone ? toastError('Phone') :
                 errors.Date ? toastError('Date') : null
     }
-    return <div className="delivery">
-        <div className='delivery__cart'>
+    return <div className={styles.order}>
+        <div className={styles.cart}>
             <Cart />
         </div>
-        <div className='delivery__fields'>
-            <form className='delivery__form' onSubmit={handleSubmit(onSubmit)}>
-                <h2 className="delivery__title">Order delivery</h2>
+        <div className={styles.fields}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                <h2 className={styles.title}>Order delivery</h2>
                 <p>Name</p>
                 <input
-                    className='delivery__input delivery__name'
+                    className={styles.name}
                     placeholder='Ivan'
                     id='Name'
                     aria-invalid={errors.Name ? "true" : "false"}
                     {...register("Name", { required: true })} />
                 <p>Address</p>
                 <input
-                    className='delivery__input delivery__address'
+                    className={styles.address}
                     placeholder='Innopolis, University st., 1/1, 209'
                     {...register("Address", { required: false })} />
                 <p>Email</p>
                 <input
                     type='email'
-                    className='delivery__input delivery__email'
+                    className={styles.email}
                     placeholder='example@website.com'
                     {...register("Email", { required: false })} />
                 <p>Phone</p>
                 <input
-                    className='delivery__input delivery__phone'
+                    className={styles.phone}
                     placeholder='+79810001122'
                     id='Phone'
                     type='tel'
@@ -85,7 +85,7 @@ function Delivery() {
                 <p>Date</p>
                 <input
                     type='datetime-local'
-                    className='delivery__input delivery__date'
+                    className={styles.date}
                     min={minDate}
                     id='Date'
                     aria-invalid={errors.Date ? "true" : "false"}
@@ -99,7 +99,7 @@ function Delivery() {
                     />Pick up at restaurant
                 </label>
                 <br />
-                <input type='submit' value='Confirm' className='delivery__submit' onClick={() => checkErrors(errors)}/>
+                <input type='submit' value='Confirm' className={styles.submit} onClick={() => checkErrors(errors)}/>
             </form>
         </div>
     </div >
