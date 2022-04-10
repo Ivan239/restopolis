@@ -1,30 +1,32 @@
-import { NEW_ACCOUNT, DELETE_ACCOUNT, LOAD_BOOKINGS, LOAD_ORDERS, ADD_BOOKING, ADD_ORDER } from "./types";
+import {
+  NEW_ACCOUNT, DELETE_ACCOUNT, LOAD_BOOKINGS, LOAD_ORDERS, ADD_BOOKING, ADD_ORDER,
+} from './types';
 
 export const newAccount = (user) => ({
-    type: NEW_ACCOUNT,
-    payload: user,
+  type: NEW_ACCOUNT,
+  payload: user,
 });
 
 export const deleteAccount = () => ({
-    type: DELETE_ACCOUNT,
+  type: DELETE_ACCOUNT,
 });
 
 export const loadBookings = (bookings) => ({
-    type: LOAD_BOOKINGS,
-    payload: bookings,
+  type: LOAD_BOOKINGS,
+  payload: bookings,
 });
 
 export const loadOrders = (orders) => ({
-    type: LOAD_ORDERS,
-    payload: orders,
+  type: LOAD_ORDERS,
+  payload: orders,
 });
 
 export const addBooking = (booking) => ({
-    type: ADD_BOOKING,
-    payload: booking,
+  type: ADD_BOOKING,
+  payload: booking,
 });
 
 export const addOrder = (order) => ({
-    type: ADD_ORDER,
-    payload: order,
+  type: ADD_ORDER,
+  payload: order,
 });

@@ -1,11 +1,36 @@
 import React from 'react';
-import styles from './Toppings.module.css'
+import PropTypes from 'prop-types';
+import styles from './Toppings.module.css';
 import Topping from '../Topping/Topping';
 
-const Toppings = (props) => {
-    return <div className={styles.toppings}>
-        {props.toppings.map((elem) => <Topping key={elem.id} name = {elem.name} price = {elem.price} img = {elem.img} isSelected = {props.isSelected} />)}
-    </div>;
+function Toppings(props) {
+  const {
+    toppings,
+    isSelected,
+  } = props;
+  return (
+    <div className={styles.toppings}>
+      {toppings.map((elem) => (
+        <Topping
+          key={elem.id}
+          name={elem.name}
+          price={elem.price}
+          img={elem.img}
+          isSelected={isSelected}
+        />
+      ))}
+    </div>
+  );
+}
+
+Toppings.propTypes = {
+  toppings: PropTypes.arrayOf(PropTypes.object),
+  isSelected: PropTypes.bool,
+};
+
+Toppings.defaultProps = {
+  toppings: {},
+  isSelected: false,
 };
 
 export default Toppings;
