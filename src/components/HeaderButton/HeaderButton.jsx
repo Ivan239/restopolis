@@ -21,7 +21,9 @@ HeaderButton.propTypes = {
 
 HeaderButton.defaultProps = {
   children: null,
-  onClick: () => function foo() {},
+  onClick: function foo() {
+    // This is intentional
+  },
 };
 
 export default HeaderButton;

@@ -31,6 +31,12 @@ function Profile() {
   const [regForm, setRegForm] = useState(false);
   const [currentUser, setCurrentUser] = useState(store.getState().account);
   const [isLogged, setIsLogged] = useState(!!Object.keys(currentUser).length);
+  const errorToast = (error) => {
+    toast.error(`${error.code} ${error.message}`, {
+      autoClose: 2400,
+    });
+  };
+
   async function getData(uid) {
     const dbRef = ref(getDatabase());
     const getItem = (item) => get(child(dbRef, `${item}/${uid}`)).then((snapshot) => {
@@ -70,9 +76,7 @@ function Profile() {
       .then((result) => {
         userAuthorised(result);
       }).catch((error) => {
-        toast.error(`${error.code} ${error.message}`, {
-          autoClose: 2400,
-        });
+        errorToast(error);
       });
   };
 
@@ -87,9 +91,7 @@ function Profile() {
       }).then((result) => {
         userAuthorised(result);
       }).catch((error) => {
-        toast.error(`${error.code} ${error.message}`, {
-          autoClose: 2400,
-        });
+        errorToast(error);
       });
   };
 
@@ -99,9 +101,7 @@ function Profile() {
         userAuthorised(userCredential);
       })
       .catch((error) => {
-        toast.error(`${error.code} ${error.message}`, {
-          autoClose: 2400,
-        });
+        errorToast(error);
       });
   };
 
