@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/restopolis/static/css/main.a9f8cfc9.css",
-    "main.js": "/restopolis/static/js/main.76085175.js",
+    "main.css": "/restopolis/static/css/main.bdd99cef.css",
+    "main.js": "/restopolis/static/js/main.ab1c9b86.js",
     "static/media/loader.gif": "/restopolis/static/media/loader.152904b010cd0cd78484.gif",
     "static/media/google.jpg": "/restopolis/static/media/google.3ecb0cbc4741472dc873.jpg",
     "static/media/emptyProfile.png": "/restopolis/static/media/emptyProfile.73670d0a1ec6f4bbf659.png",
     "static/media/close.svg": "/restopolis/static/media/close.95192aa70bb1cec448b306c96ef3baac.svg",
     "index.html": "/restopolis/index.html",
-    "main.a9f8cfc9.css.map": "/restopolis/static/css/main.a9f8cfc9.css.map",
-    "main.76085175.js.map": "/restopolis/static/js/main.76085175.js.map"
+    "main.bdd99cef.css.map": "/restopolis/static/css/main.bdd99cef.css.map",
+    "main.ab1c9b86.js.map": "/restopolis/static/js/main.ab1c9b86.js.map"
   },
   "entrypoints": [
-    "static/css/main.a9f8cfc9.css",
-    "static/js/main.76085175.js"
+    "static/css/main.bdd99cef.css",
+    "static/js/main.ab1c9b86.js"
   ]
 }
