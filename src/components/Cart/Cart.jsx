@@ -4,8 +4,7 @@ import CartItems from '../CartItems/CartItems';
 import styles from './Cart.module.css';
 
 function Cart() {
-  const [items, 
-    setItems] = useState(store.getState().cart);
+  const [items, setItems] = useState(store.getState().cart);
   useEffect(
     () =>
       store.subscribe(() => {
