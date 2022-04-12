@@ -1,34 +1,34 @@
 .orders {
-    width: 100%;
-    height: 100%;
-    margin: auto auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  margin: auto auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .value {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .total {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .price {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .name {
-    text-align: center;
+  text-align: center;
 }
 
 .sorry {
-    text-align: center;
+  text-align: center;
 }
 
 .items {
-    flex-grow: 1;
-    padding-top: 20px;
+  flex-grow: 1;
+  padding-top: 20px;
 }

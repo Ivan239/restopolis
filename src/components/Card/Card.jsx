@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransition } from 'react-transition-group';
+import {CSSTransition} from 'react-transition-group';
 import styles from './Card.module.css';
 import BigCard from '../BigCard/BigCard';
 
 import MenuButton from '../MenuButton/MenuButton';
 import store from '../../redux/store/store';
-import { clearToppings } from '../../redux/dish/actions';
+import {clearToppings} from '../../redux/dish/actions';
 import animation from './BigCardAnimation.module.css';
 
 function Card(props) {
-  const {
-    img,
-    name,
-    price,
-    description,
-    toppings,
-  } = props;
+  const {img, name, price, description, toppings} = props;
 
   const [showBigCard, setShowBigCard] = useState(false);
 
@@ -31,10 +25,7 @@ function Card(props) {
       <div className={styles.text}>
         <div className={styles.info}>
           <h3 className={styles.name}>{name}</h3>
-          <h4 className={styles.price}>
-            From $
-            {price.toFixed(2)}
-          </h4>
+          <h4 className={styles.price}>From ${price.toFixed(2)}</h4>
         </div>
         <div className={styles.button}>
           <MenuButton>

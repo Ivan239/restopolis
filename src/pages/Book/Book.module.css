@@ -1,27 +1,27 @@
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .book {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .submit {
-    background-color: rgb(24, 24, 24);
-    color: white;
-    cursor: pointer;
-    margin-top: 20px;
-    transition-property: background-color;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  transition-property: background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
 .submit:hover {
-    background-color: rgb(42, 42, 42);
+  background-color: rgb(42, 42, 42);
 }
 
 .form p {
-    margin-left: 16px;
+  margin-left: 16px;
 }

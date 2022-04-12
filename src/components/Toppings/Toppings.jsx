@@ -4,20 +4,11 @@ import styles from './Toppings.module.css';
 import Topping from '../Topping/Topping';
 
 function Toppings(props) {
-  const {
-    toppings,
-    isSelected,
-  } = props;
+  const {toppings, isSelected} = props;
   return (
     <div className={styles.toppings}>
-      {toppings.map((elem) => (
-        <Topping
-          key={elem.id}
-          name={elem.name}
-          price={elem.price}
-          img={elem.img}
-          isSelected={isSelected}
-        />
+      {toppings.map(elem => (
+        <Topping key={elem.id} name={elem.name} price={elem.price} img={elem.img} isSelected={isSelected} />
       ))}
     </div>
   );

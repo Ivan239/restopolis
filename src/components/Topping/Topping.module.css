@@ -1,32 +1,32 @@
 .topping {
-    cursor: pointer;
-    height: 49%;
-    width: 32%;
-    border-radius: 18px;
-    margin-bottom: 2.5%;
-    border: 1px solid white;
-    box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 16px;
+  cursor: pointer;
+  height: 49%;
+  width: 32%;
+  border-radius: 18px;
+  margin-bottom: 2.5%;
+  border: 1px solid white;
+  box-shadow: rgba(6, 5, 50, 0.12) 0px 4px 16px;
 }
 
 .topping-true {
-    cursor: pointer;
-    height: 49%;
-    width: 32%;
-    border-radius: 18px;
-    margin-bottom: 2.5%;
-    box-sizing: border-box;
+  cursor: pointer;
+  height: 49%;
+  width: 32%;
+  border-radius: 18px;
+  margin-bottom: 2.5%;
+  box-sizing: border-box;
 }
 
 .topping .image {
-    width: 70%;
-    height: auto;
-    padding: 6px 18px 0px 18px;
+  width: 70%;
+  height: auto;
+  padding: 6px 18px 0px 18px;
 }
 
 .name {
-    text-align: center;
+  text-align: center;
 }
 
 .price {
-    text-align: center;
+  text-align: center;
 }

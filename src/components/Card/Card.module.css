@@ -1,58 +1,58 @@
 .card {
-    width: 22.5%;
-    height: 340px;
-    margin-top: 28px;
-    cursor: pointer;
+  width: 22.5%;
+  height: 340px;
+  margin-top: 28px;
+  cursor: pointer;
 }
 
 .image {
-    width: 90%;
-    position: relative;
-    margin-left: calc(22.5% / 4);
-    margin-bottom: 20px;
-    transition-property: margin-bottom, margin-top;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
+  width: 90%;
+  position: relative;
+  margin-left: calc(22.5% / 4);
+  margin-bottom: 20px;
+  transition-property: margin-bottom, margin-top;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
 .card:hover .image {
-    margin-bottom: 15px;
-    margin-top: 5px;
+  margin-bottom: 15px;
+  margin-top: 5px;
 }
 
 .button {
-    width: 100px;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 36px;
+  width: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 36px;
 }
 
 .text {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .card__big-enter {
-    opacity: 0;
+  opacity: 0;
 }
 
 .card__big-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
+  opacity: 1;
+  transition: opacity 300ms;
 }
 
 .card__big-exit {
-    opacity: 1;
+  opacity: 1;
 }
 
 .card__big-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
 .button-text {
-    color: white;
+  color: white;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import store from '../../redux/store/store';
 import CartItems from '../CartItems/CartItems';
 import styles from './Orders.module.css';
@@ -6,10 +6,11 @@ import styles from './Orders.module.css';
 function Orders() {
   const [orders, setOrders] = useState(store.getState().account.orders);
   useEffect(
-    () => store.subscribe(() => {
-      setOrders(store.getState().account.orders);
-    }),
-    [],
+    () =>
+      store.subscribe(() => {
+        setOrders(store.getState().account.orders);
+      }),
+    []
   );
   const newOrders = orders;
   let price = 0;
@@ -32,13 +33,12 @@ function Orders() {
         <div className={styles.items}>
           <CartItems dishes={newOrders[0].cart} isDeletable={false} />
         </div>
-      ) : <h2 className={styles.sorry}>Sorry, you have nothing here</h2>}
+      ) : (
+        <h2 className={styles.sorry}>Sorry, you have nothing here</h2>
+      )}
       <div className={styles.value}>
         <h3 className={styles.total}>Total:</h3>
-        <h3 className={styles.price}>
-          $
-          {price.toFixed(2)}
-        </h3>
+        <h3 className={styles.price}>${price.toFixed(2)}</h3>
       </div>
     </div>
   );

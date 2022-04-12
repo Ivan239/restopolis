@@ -4,13 +4,10 @@ import Card from '../Card/Card';
 import styles from './Cards.module.css';
 
 function Cards(props) {
-  const {
-    dishes,
-    toppings,
-  } = props;
+  const {dishes, toppings} = props;
   return (
     <div className={styles.cards}>
-      {dishes.map((elem) => (
+      {dishes.map(elem => (
         <Card
           key={elem.id}
           name={elem.name}

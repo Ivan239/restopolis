@@ -1,47 +1,47 @@
 .cart-item {
-    position: relative;
-    display: flex;
-    height: 126px;
-    width: 96%;
-    border: 1px solid rgb(24, 24, 24, 0.6);
-    box-shadow: rgba(6, 5, 50, 0.12) 2px 2px 8px;
-    border-radius: 18px;
-    margin-bottom: 16px;
-    margin-left: 2%;
+  position: relative;
+  display: flex;
+  height: 126px;
+  width: 96%;
+  border: 1px solid rgb(24, 24, 24, 0.6);
+  box-shadow: rgba(6, 5, 50, 0.12) 2px 2px 8px;
+  border-radius: 18px;
+  margin-bottom: 16px;
+  margin-left: 2%;
 }
 
 .delete {
-    cursor: pointer;
-    height: 12px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+  cursor: pointer;
+  height: 12px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .image {
-    padding: 9px 0 9px 9px;
+  padding: 9px 0 9px 9px;
 }
 
 .topping {
-    margin: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .toppings {
-    height: 60px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    display: flex;
-    gap: 0 12px;
+  height: 60px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 0 12px;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 12px;
-    padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 12px;
+  padding-top: 8px;
 }
 
 .name {
-    line-height: 20px;
+  line-height: 20px;
 }

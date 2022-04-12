@@ -1,32 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import {useForm} from 'react-hook-form';
+import {toast} from 'react-toastify';
 import MenuButton from '../MenuButton/MenuButton';
 import styles from './Authorisation.module.css';
 import google from '../../assets/google.jpg';
 import back from '../../assets/back.png';
 
 function Authorisation(props) {
-  const {
-    authorise,
-    setAuthForm,
-    authoriseGoogle,
-  } = props;
+  const {authorise, setAuthForm, authoriseGoogle} = props;
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
   } = useForm();
-  const toastError = (field) => {
+  const toastError = field => {
     toast.error(`${field} is required`, {
       autoClose: 2400,
     });
   };
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     authorise(data.Email, data.Password);
   };
-  const checkErrors = (errorList) => {
+  const checkErrors = errorList => {
     if (errorList.Email) {
       toastError('E-mail');
     } else if (errorList.Password) {
@@ -45,7 +41,7 @@ function Authorisation(props) {
           className={styles.field}
           id="Email"
           aria-invalid={errors.Email ? 'true' : 'false'}
-          {...register('Email', { required: true })}
+          {...register('Email', {required: true})}
         />
         <p>Password:</p>
         <input
@@ -54,7 +50,7 @@ function Authorisation(props) {
           placeholder="********"
           id="Password"
           aria-invalid={errors.Password ? 'true' : 'false'}
-          {...register('Password', { required: true })}
+          {...register('Password', {required: true})}
         />
         <div className={styles.enter}>
           <div className={styles.button}>

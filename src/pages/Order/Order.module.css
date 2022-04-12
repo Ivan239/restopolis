@@ -1,59 +1,59 @@
 .delivery__title {
-    text-align: center;
+  text-align: center;
 }
 
 .order {
-    max-height: 586px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+  max-height: 586px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .cart {
-    width: 50%;
-    max-height: 100%;
+  width: 50%;
+  max-height: 100%;
 }
 
 .fields {
-    width: 50%;
+  width: 50%;
 }
 
 .form {
-    margin: auto auto;
-    width: 50%;
+  margin: auto auto;
+  width: 50%;
 }
 
 .submit {
-    background-color: rgb(24, 24, 24);
-    color: white;
-    cursor: pointer;
-    margin-top: 20px;
-    transition-property: background-color;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  transition-property: background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
 .submit:hover {
-    background-color: rgb(42, 42, 42);
+  background-color: rgb(42, 42, 42);
 }
 
 .form p {
-    margin-left: 16px;
+  margin-left: 16px;
 }
 
 .order label {
-    display:inline-block;
-    margin-top: 20px;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    line-height: 20px;
-    color: rgb(24, 24, 24);
+  display: inline-block;
+  margin-top: 20px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgb(24, 24, 24);
 }
 
-.order label input[type=checkbox] {
-    margin: 0 12px 0 3px;
+.order label input[type='checkbox'] {
+  margin: 0 12px 0 3px;
 }

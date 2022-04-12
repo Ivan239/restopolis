@@ -1,6 +1,4 @@
-import {
-  NEW_ACCOUNT, DELETE_ACCOUNT, LOAD_BOOKINGS, LOAD_ORDERS, ADD_BOOKING, ADD_ORDER,
-} from './types';
+import {NEW_ACCOUNT, DELETE_ACCOUNT, LOAD_BOOKINGS, LOAD_ORDERS, ADD_BOOKING, ADD_ORDER} from './types';
 
 export default function reducer(state, action) {
   switch (action.type) {
@@ -32,6 +30,7 @@ export default function reducer(state, action) {
       };
     case DELETE_ACCOUNT:
       return {};
-    default: return state || {};
+    default:
+      return state || {};
   }
 }

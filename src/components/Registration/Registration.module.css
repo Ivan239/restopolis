@@ -1,76 +1,76 @@
 .reg {
-    width: 30%;
-    height: 57%;
-    position: relative;
+  width: 30%;
+  height: 57%;
+  position: relative;
 }
 
 .back {
-    cursor: pointer;
-    top: 20px;
-    left: 18px;
-    position: absolute;
-    height: 16px;
-    width: 16px;
+  cursor: pointer;
+  top: 20px;
+  left: 18px;
+  position: absolute;
+  height: 16px;
+  width: 16px;
 }
 
 .form {
-    background-color: white;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 25px;
-    justify-content: space-around;
+  background-color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 25px;
+  justify-content: space-around;
 }
 
 .field {
-    width: 80%;
+  width: 80%;
 }
 
 .reg p {
-    width: 80%;
-    padding-left: 16px;
-    margin: 0;
+  width: 80%;
+  padding-left: 16px;
+  margin: 0;
 }
 
 .reg h2 {
-    line-height: 30px;
+  line-height: 30px;
 }
 
 .button {
-    width: 100%;
+  width: 100%;
 }
 
 .google {
-    height: 34px;
-    cursor: pointer;
-    border: 1px solid rgb(226, 226, 233);
-    border-radius: 4px;
-    box-sizing: border-box;
-    box-shadow: none;
-    transition-property: box-shadow;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
+  height: 34px;
+  cursor: pointer;
+  border: 1px solid rgb(226, 226, 233);
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  transition-property: box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
 .google:hover {
-    box-shadow: rgba(6, 5, 50, 0.2) 1px 1px 4px;
+  box-shadow: rgba(6, 5, 50, 0.2) 1px 1px 4px;
 }
 
 .enter p {
-    padding: 6px 0 0 10px;
-    width: 36px;
+  padding: 6px 0 0 10px;
+  width: 36px;
 }
 
 .enter {
-    width: 50%;
-    height: 34px;
-    display: flex;
+  width: 50%;
+  height: 34px;
+  display: flex;
 }
 
-.reg input[type=file] {
-    border: none;
-    padding: 0;
+.reg input[type='file'] {
+  border: none;
+  padding: 0;
 }

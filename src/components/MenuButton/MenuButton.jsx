@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './MenuButton.module.css';
 
 function MenuButton(props) {
-  const {
-    children,
-    onClick,
-    type,
-  } = props;
+  const {children, onClick, type} = props;
   return (
     <button className={styles['menu-button']} type={type === 'submit' ? 'submit' : 'button'} onClick={onClick}>
       {children}

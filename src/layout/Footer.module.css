@@ -1,33 +1,33 @@
 .footer {
-    width: 100%;
-    position: relative;
-    background-color: rgb(24, 24, 24);
-    display: flex;
-    justify-content: center;
-    margin-top: 36px;
+  width: 100%;
+  position: relative;
+  background-color: rgb(24, 24, 24);
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
 }
 
 .element {
-    margin-left: 20px;
-    margin-top: 20px;
-    color: white;
-    margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  color: white;
+  margin-right: 20px;
 }
 
 .info {
-    height: 160px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
-    width: 1280px;
+  height: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 1280px;
 }
 
 .footer h3 {
-    margin-left: 20px;
-    color: white;
+  margin-left: 20px;
+  color: white;
 }
 
 #feedback {
-    cursor: pointer;
+  cursor: pointer;
 }

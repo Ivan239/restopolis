@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProfileInfo.module.css';
 import MenuButton from '../MenuButton/MenuButton';
 import store from '../../redux/store/store';
 
 function ProfileInfo(props) {
-  const {
-    currentUser,
-    logout,
-  } = props;
+  const {currentUser, logout} = props;
   const [bookingAmount, setBookingAmount] = useState(store.getState().account.bookingAmount);
   const [orderAmount, setOrderAmount] = useState(store.getState().account.orderAmount);
   useEffect(
-    () => store.subscribe(() => {
-      setBookingAmount(store.getState().account.bookingAmount);
-      setOrderAmount(store.getState().account.orderAmount);
-    }),
-    [],
+    () =>
+      store.subscribe(() => {
+        setBookingAmount(store.getState().account.bookingAmount);
+        setOrderAmount(store.getState().account.orderAmount);
+      }),
+    []
   );
   return (
     <div className={styles['profile-info']}>
@@ -32,7 +30,9 @@ function ProfileInfo(props) {
       </p>
       <div className={styles.setbtn}>
         <MenuButton>
-          <p className={styles.settxt} onClick={() => logout()}>Logout</p>
+          <p className={styles.settxt} onClick={() => logout()}>
+            Logout
+          </p>
         </MenuButton>
       </div>
     </div>

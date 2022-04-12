@@ -1,21 +1,21 @@
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .info {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text {
-    text-align: right;
+  text-align: right;
 }
 
 .error {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .nextbooking {
-    min-height: 220px;
+  min-height: 220px;
 }

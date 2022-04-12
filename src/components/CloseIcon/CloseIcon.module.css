@@ -1,16 +1,16 @@
 .close-icon {
-    position: absolute;
-    right: -40px;
-    top: 10px;
-    cursor: pointer;
-    width: 2.9%;
-    height: auto;
-    filter:  brightness(0) invert(1);
-    transition-property: transform;
-    transition-duration: 0.25s;
-    transition-timing-function: ease;
+  position: absolute;
+  right: -40px;
+  top: 10px;
+  cursor: pointer;
+  width: 2.9%;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition-property: transform;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
 }
 
 .close-icon:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
