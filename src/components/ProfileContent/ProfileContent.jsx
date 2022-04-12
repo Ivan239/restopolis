@@ -7,14 +7,18 @@ import styles from './ProfileContent.module.css';
 import emptyProfile from '../../assets/emptyProfile.png';
 
 function ProfileContent(props) {
-  const {currentUser, logout} = props;
+  const { currentUser, logout } = props;
   return (
     <div className={styles.profilecontent}>
       <div className={styles.left}>
         <div>
           <h3 className={styles.title}>Your profile</h3>
           <div className={styles.user}>
-            <img src={currentUser.photoURL || emptyProfile} alt={currentUser.displayName} className={styles.photo} />
+            <img
+              src={currentUser.photoURL || emptyProfile}
+              alt={currentUser.displayName}
+              className={styles.photo}
+            />
             <ProfileInfo currentUser={currentUser} logout={logout} />
           </div>
         </div>

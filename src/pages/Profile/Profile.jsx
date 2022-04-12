@@ -6,16 +6,16 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
-import React, {useEffect, useState} from 'react';
-import {getDatabase, ref, get, child} from 'firebase/database';
-import {toast} from 'react-toastify';
-import {CSSTransition} from 'react-transition-group';
+import React, { useEffect, useState } from 'react';
+import { getDatabase, ref, get, child } from 'firebase/database';
+import { toast } from 'react-toastify';
+import { CSSTransition } from 'react-transition-group';
 import styles from './Profile.module.css';
 import firebase from '../../firebase';
 import store from '../../redux/store/store';
-import {deleteAccount, loadBookings, loadOrders, newAccount} from '../../redux/account/actions';
+import { deleteAccount, loadBookings, loadOrders, newAccount } from '../../redux/account/actions';
 import ProfileContent from '../../components/ProfileContent/ProfileContent';
-import MenuButton from '../../components/MenuButton/MenuButton';
+import MenuButton from '../../components/MenuButton/MenuButton.tsx';
 import Authorisation from '../../components/Authorisation/Authorisation';
 import Registration from '../../components/Registration/Registration';
 import animation from './ProfileAnimation.module.css';
@@ -27,7 +27,7 @@ function Profile() {
   const [regForm, setRegForm] = useState(false);
   const [currentUser, setCurrentUser] = useState(store.getState().account);
   const [isLogged, setIsLogged] = useState(!!Object.keys(currentUser).length);
-  const errorToast = error => {
+  const errorToast = (error) => {
     toast.error(`${error.code} ${error.message}`, {
       autoClose: 2400,
     });
@@ -35,15 +35,15 @@ function Profile() {
 
   async function getData(uid) {
     const dbRef = ref(getDatabase());
-    const getItem = item =>
+    const getItem = (item) =>
       get(child(dbRef, `${item}/${uid}`))
-        .then(snapshot => {
+        .then((snapshot) => {
           if (snapshot.exists()) {
             return Object.values(snapshot.val());
           }
           return [];
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error); // eslint-disable-line no-console
         });
     const bookingsResult = await getItem('bookings');
@@ -55,9 +55,9 @@ function Profile() {
   }
 
   async function userAuthorised(result) {
-    const {user} = result;
+    const { user } = result;
     store.dispatch(newAccount(user));
-    return getData(user.uid).then(data => {
+    return getData(user.uid).then((data) => {
       store.dispatch(loadOrders(data.orders));
       store.dispatch(loadBookings(data.bookings));
       setIsLogged(true);
@@ -71,37 +71,37 @@ function Profile() {
 
   const authoriseGoogle = () => {
     signInWithPopup(auth, provider)
-      .then(result => {
+      .then((result) => {
         userAuthorised(result);
       })
-      .catch(error => {
+      .catch((error) => {
         errorToast(error);
       });
   };
 
   const register = (email, password, name, photo) => {
     createUserWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
+      .then((userCredential) => {
         updateProfile(userCredential.user, {
           displayName: name,
           photoURL: photo,
         });
         return userCredential;
       })
-      .then(result => {
+      .then((result) => {
         userAuthorised(result);
       })
-      .catch(error => {
+      .catch((error) => {
         errorToast(error);
       });
   };
 
   const authorise = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
+      .then((userCredential) => {
         userAuthorised(userCredential);
       })
-      .catch(error => {
+      .catch((error) => {
         errorToast(error);
       });
   };
@@ -119,7 +119,7 @@ function Profile() {
       store.subscribe(() => {
         setCurrentUser(store.getState().account);
       }),
-    []
+    [],
   );
 
   return (
@@ -139,10 +139,18 @@ function Profile() {
               </div>
             ) : null}
             {authForm ? (
-              <Authorisation authorise={authorise} authoriseGoogle={authoriseGoogle} setAuthForm={setAuthForm} />
+              <Authorisation
+                authorise={authorise}
+                authoriseGoogle={authoriseGoogle}
+                setAuthForm={setAuthForm}
+              />
             ) : null}
             {regForm ? (
-              <Registration registerUser={register} authoriseGoogle={authoriseGoogle} setRegForm={setRegForm} />
+              <Registration
+                registerUser={register}
+                authoriseGoogle={authoriseGoogle}
+                setRegForm={setRegForm}
+              />
             ) : null}
           </div>
         </CSSTransition>

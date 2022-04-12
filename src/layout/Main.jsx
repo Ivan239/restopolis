@@ -1,20 +1,20 @@
-import {getDatabase, ref, get, child} from 'firebase/database';
-import React, {useState} from 'react';
+import { getDatabase, ref, get, child } from 'firebase/database';
+import React, { useState } from 'react';
 import styles from './Main.module.css';
 import Cards from '../components/Cards/Cards';
 import loader from '../assets/loader.gif';
 
 async function dishes() {
   const dbRef = ref(getDatabase());
-  const getItem = item =>
+  const getItem = (item) =>
     get(child(dbRef, `/${item}`))
-      .then(snapshot => {
+      .then((snapshot) => {
         if (snapshot.exists()) {
           return Object.values(snapshot.val());
         }
         return {};
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error); // eslint-disable-line no-console
       });
   const pizzas = await getItem('pizzas');
@@ -30,7 +30,7 @@ function Main() {
   const [toppings, setToppings] = useState([]);
   const [loading, setLoading] = useState(true);
   if (!pizzas.length) {
-    dishes().then(result => {
+    dishes().then((result) => {
       setPizzas(result.pizzas);
       setToppings(result.toppings[0]);
       setLoading(false);
@@ -39,7 +39,7 @@ function Main() {
 
   return (
     <div className={styles.main}>
-      <h2 className={styles.category} style={{textAlign: 'center'}}>
+      <h2 className={styles.category} style={{ textAlign: 'center' }}>
         Pizzas
       </h2>
       {!loading ? (

@@ -1,7 +1,7 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
-import HeaderButton from '../components/HeaderButton/HeaderButton';
+import HeaderButton from '../components/HeaderButton/HeaderButton.tsx';
 import CartButton from '../components/CartButton/CartButton';
 
 const barButtons = ['menu', 'order', 'book', 'profile'];
@@ -17,7 +17,7 @@ function Header() {
         <h1>R e s t o p o l i s</h1>
       </NavLink>
       <div className={styles.buttons}>
-        {barButtons.map(elem =>
+        {barButtons.map((elem) =>
           elem === 'menu' ? (
             <NavLink to="/" key={elem}>
               <HeaderButton>{firstUpper(elem)}</HeaderButton>
@@ -26,7 +26,7 @@ function Header() {
             <NavLink to={`/${elem}`} key={elem}>
               <HeaderButton>{firstUpper(elem)}</HeaderButton>
             </NavLink>
-          )
+          ),
         )}
         <CartButton />
       </div>

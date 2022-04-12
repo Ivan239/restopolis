@@ -1,12 +1,12 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
-import {getDatabase, ref, set} from 'firebase/database';
-import {toast} from 'react-toastify';
+import { useForm } from 'react-hook-form';
+import { getDatabase, ref, set } from 'firebase/database';
+import { toast } from 'react-toastify';
 import styles from './Book.module.css';
-import currentDate from '../../components/currentDate';
-import newId from '../../components/newId';
+import currentDate from '../../functions/currentDate/currentDate.ts';
+import newId from '../../functions/newId/newId.ts';
 import store from '../../redux/store/store';
-import {addBooking} from '../../redux/account/actions';
+import { addBooking } from '../../redux/account/actions';
 
 function Book() {
   const minDate = currentDate(4);
@@ -14,10 +14,10 @@ function Book() {
     register,
     handleSubmit,
     reset,
-    formState: {errors},
+    formState: { errors },
   } = useForm();
   const database = getDatabase();
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     let userID = store.getState().account.uid;
     if (!userID) {
       userID = 'non-auth';
@@ -31,12 +31,12 @@ function Book() {
       autoClose: 2400,
     });
   };
-  const toastError = field => {
+  const toastError = (field) => {
     toast.error(`${field} is required`, {
       autoClose: 2400,
     });
   };
-  const checkErrors = errorList => {
+  const checkErrors = (errorList) => {
     if (errorList.Name) {
       toastError('Name');
     } else if (errorList.Email) {
@@ -59,7 +59,7 @@ function Book() {
           placeholder="Ivan"
           id="Name"
           aria-invalid={errors.Name ? 'true' : 'false'}
-          {...register('Name', {required: true})}
+          {...register('Name', { required: true })}
         />
         <p>Email</p>
         <input
@@ -68,7 +68,7 @@ function Book() {
           placeholder="example@website.com"
           id="Email"
           aria-invalid={errors.Email ? 'true' : 'false'}
-          {...register('Email', {required: true})}
+          {...register('Email', { required: true })}
         />
         <p>Phone</p>
         <input
@@ -76,7 +76,7 @@ function Book() {
           placeholder="+79810001122"
           id="Phone"
           aria-invalid={errors.Phone ? 'true' : 'false'}
-          {...register('Phone', {required: true})}
+          {...register('Phone', { required: true })}
         />
         <p>Date</p>
         <input
@@ -85,7 +85,7 @@ function Book() {
           min={minDate}
           id="Date"
           aria-invalid={errors.Date ? 'true' : 'false'}
-          {...register('Date', {required: true})}
+          {...register('Date', { required: true })}
         />
         <p>Amount of people</p>
         <input
@@ -96,10 +96,15 @@ function Book() {
           className={styles.amount}
           id="Amount"
           aria-invalid={errors.Amount ? 'true' : 'false'}
-          {...register('Amount', {required: true})}
+          {...register('Amount', { required: true })}
         />
         <br />
-        <input type="submit" value="Book" className={styles.submit} onClick={() => checkErrors(errors)} />
+        <input
+          type="submit"
+          value="Book"
+          className={styles.submit}
+          onClick={() => checkErrors(errors)}
+        />
       </form>
     </div>
   );

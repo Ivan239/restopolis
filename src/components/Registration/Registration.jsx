@@ -1,40 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useForm} from 'react-hook-form';
-import {toast} from 'react-toastify';
-import MenuButton from '../MenuButton/MenuButton';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import MenuButton from '../MenuButton/MenuButton.tsx';
 import styles from './Registration.module.css';
 import google from '../../assets/google.jpg';
 import back from '../../assets/back.png';
 
 function Registration(props) {
-  const {registerUser, setRegForm, authoriseGoogle} = props;
+  const { registerUser, setRegForm, authoriseGoogle } = props;
   const passwordPattern = /^(?=.*\d)(?=.*[a-z]).{8,}$/i;
   const {
     register,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
   } = useForm();
-  const toastError = field => {
+  const toastError = (field) => {
     toast.error(`${field} is required`, {
       autoClose: 2400,
     });
   };
-  const passwordText =
+  const passwordText = // eslint-disable-line
     'The password must contain at least 1 letter and 1 number, and be longer than 8 and not shorter than 32 characters.';
   const passwordError = () => {
     toast.error(passwordText, {
       autoClose: 9000,
     });
   };
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     if (passwordPattern.test(data.Password)) {
       registerUser(data.Email, data.Password, data.Name);
     } else {
       passwordError();
     }
   };
-  const checkErrors = errorList => {
+  const checkErrors = (errorList) => {
     if (errors.Name) {
       toastError('Name');
     } else if (errors.Email) {
@@ -54,7 +54,7 @@ function Registration(props) {
           className={styles.field}
           id="Name"
           aria-invalid={errors.Name ? 'true' : 'false'}
-          {...register('Name', {required: true})}
+          {...register('Name', { required: true })}
         />
         <p>E-mail:</p>
         <input
@@ -63,7 +63,7 @@ function Registration(props) {
           className={styles.field}
           id="Email"
           aria-invalid={errors.Email ? 'true' : 'false'}
-          {...register('Email', {required: true})}
+          {...register('Email', { required: true })}
         />
         <p>Password:</p>
         <input
@@ -72,7 +72,7 @@ function Registration(props) {
           placeholder="********"
           id="Password"
           aria-invalid={errors.Password ? 'true' : 'false'}
-          {...register('Password', {required: true})}
+          {...register('Password', { required: true })}
         />
         <div className={styles.enter}>
           <div className={styles.button}>
@@ -81,7 +81,12 @@ function Registration(props) {
             </MenuButton>
           </div>
           <p>or</p>
-          <img src={google} alt="google" className={styles.google} onClick={() => authoriseGoogle()} />
+          <img
+            src={google}
+            alt="google"
+            className={styles.google}
+            onClick={() => authoriseGoogle()}
+          />
         </div>
       </form>
     </div>

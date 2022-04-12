@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import styles from './Card.module.css';
 import BigCard from '../BigCard/BigCard';
 
-import MenuButton from '../MenuButton/MenuButton';
+import MenuButton from '../MenuButton/MenuButton.tsx';
 import store from '../../redux/store/store';
-import {clearToppings} from '../../redux/dish/actions';
+import { clearToppings } from '../../redux/dish/actions';
 import animation from './BigCardAnimation.module.css';
 
 function Card(props) {
-  const {img, name, price, description, toppings} = props;
+  const { img, name, price, description, toppings } = props;
 
   const [showBigCard, setShowBigCard] = useState(false);
 

@@ -1,14 +1,14 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
-import {getDatabase, ref, set} from 'firebase/database';
-import {toast} from 'react-toastify';
+import { useForm } from 'react-hook-form';
+import { getDatabase, ref, set } from 'firebase/database';
+import { toast } from 'react-toastify';
 import styles from './Order.module.css';
-import currentDate from '../../components/currentDate';
+import currentDate from '../../functions/currentDate/currentDate.ts';
 import Cart from '../../components/Cart/Cart';
-import newId from '../../components/newId';
+import newId from '../../functions/newId/newId.ts';
 import store from '../../redux/store/store';
-import {deleteCart} from '../../redux/cart/actions';
-import {addOrder} from '../../redux/account/actions';
+import { deleteCart } from '../../redux/cart/actions';
+import { addOrder } from '../../redux/account/actions';
 
 function Order() {
   const minDate = currentDate(2);
@@ -16,10 +16,10 @@ function Order() {
     register,
     handleSubmit,
     reset,
-    formState: {errors},
+    formState: { errors },
   } = useForm();
   const database = getDatabase();
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     if (store.getState().cart.length) {
       let userID = store.getState().account.uid;
       if (!userID) {
@@ -41,12 +41,12 @@ function Order() {
       });
     }
   };
-  const toastError = field => {
+  const toastError = (field) => {
     toast.error(`${field} is required`, {
       autoClose: 2400,
     });
   };
-  const checkErrors = errorList => {
+  const checkErrors = (errorList) => {
     if (errorList.Name) {
       toastError('Name');
     } else if (errorList.Phone) {
@@ -69,20 +69,20 @@ function Order() {
             placeholder="Ivan"
             id="Name"
             aria-invalid={errors.Name ? 'true' : 'false'}
-            {...register('Name', {required: true})}
+            {...register('Name', { required: true })}
           />
           <p>Address</p>
           <input
             className={styles.address}
             placeholder="Innopolis, University st., 1/1, 209"
-            {...register('Address', {required: false})}
+            {...register('Address', { required: false })}
           />
           <p>Email</p>
           <input
             type="email"
             className={styles.email}
             placeholder="example@website.com"
-            {...register('Email', {required: false})}
+            {...register('Email', { required: false })}
           />
           <p>Phone</p>
           <input
@@ -92,7 +92,7 @@ function Order() {
             type="tel"
             minLength="10"
             aria-invalid={errors.Phone ? 'true' : 'false'}
-            {...register('Phone', {required: true})}
+            {...register('Phone', { required: true })}
           />
           <p>Date</p>
           <input
@@ -101,15 +101,25 @@ function Order() {
             min={minDate}
             id="Date"
             aria-invalid={errors.Date ? 'true' : 'false'}
-            {...register('Date', {required: true})}
+            {...register('Date', { required: true })}
           />
           <br />
           <label htmlFor="checkbox">
-            <input type="checkbox" name="type" id="checkbox" {...register('Restaurant', {required: false})} />
+            <input
+              type="checkbox"
+              name="type"
+              id="checkbox"
+              {...register('Restaurant', { required: false })}
+            />
             Pick up at restaurant
           </label>
           <br />
-          <input type="submit" value="Confirm" className={styles.submit} onClick={() => checkErrors(errors)} />
+          <input
+            type="submit"
+            value="Confirm"
+            className={styles.submit}
+            onClick={() => checkErrors(errors)}
+          />
         </form>
       </div>
     </div>
