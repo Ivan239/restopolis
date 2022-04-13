@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import MenuButton from '../MenuButton/MenuButton.tsx';
+import MenuButton from '../MenuButton/MenuButton';
 import styles from './Registration.module.css';
 import google from '../../assets/google.jpg';
 import back from '../../assets/back.png';

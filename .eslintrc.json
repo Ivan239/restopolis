@@ -11,6 +11,14 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
   "plugins": ["prettier", "@typescript-eslint", "react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts", ".jsx"] }],
@@ -26,6 +34,15 @@
     "indent": "off", // conflict with prettier (turned to 2)
     "no-confusing-arrow": "off", // conflict with prettier
     "function-paren-newline": "off", // conflict with prettier
-    "react/function-component-definition": "off" // conflict with typescript
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   }
 }

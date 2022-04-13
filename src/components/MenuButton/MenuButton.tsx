@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './MenuButton.module.css';
 
 type MenuButtonProps = {
-  children: Node;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   type?: string;
 };
 
@@ -21,6 +21,9 @@ function MenuButton({ children, onClick, type }: MenuButtonProps) {
 
 MenuButton.defaultProps = {
   type: 'button',
+  onClick: function foo() {
+    // This is intentional
+  },
 };
 
 export default MenuButton;

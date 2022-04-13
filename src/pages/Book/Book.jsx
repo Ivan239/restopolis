@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { getDatabase, ref, set } from 'firebase/database';
 import { toast } from 'react-toastify';
 import styles from './Book.module.css';
-import currentDate from '../../functions/currentDate/currentDate.ts';
-import newId from '../../functions/newId/newId.ts';
+import currentDate from '../../functions/currentDate/currentDate';
+import newId from '../../functions/newId/newId';
 import store from '../../redux/store/store';
 import { addBooking } from '../../redux/account/actions';
 

@@ -15,7 +15,7 @@ import firebase from '../../firebase';
 import store from '../../redux/store/store';
 import { deleteAccount, loadBookings, loadOrders, newAccount } from '../../redux/account/actions';
 import ProfileContent from '../../components/ProfileContent/ProfileContent';
-import MenuButton from '../../components/MenuButton/MenuButton.tsx';
+import MenuButton from '../../components/MenuButton/MenuButton';
 import Authorisation from '../../components/Authorisation/Authorisation';
 import Registration from '../../components/Registration/Registration';
 import animation from './ProfileAnimation.module.css';

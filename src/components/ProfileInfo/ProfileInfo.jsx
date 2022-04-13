@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProfileInfo.module.css';
-import MenuButton from '../MenuButton/MenuButton.tsx';
+import MenuButton from '../MenuButton/MenuButton';
 import store from '../../redux/store/store';
 
 function ProfileInfo(props) {

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { CSSTransition } from 'react-transition-group';
-import MenuButton from '../MenuButton/MenuButton.tsx';
+import MenuButton from '../MenuButton/MenuButton';
 import styles from './BigCard.module.css';
-import Toppings from '../Toppings/Toppings.tsx';
+import Toppings from '../Toppings/Toppings';
 import { addDish } from '../../redux/cart/actions';
 import store from '../../redux/store/store';
 import { addTopping, clearToppings, deleteTopping } from '../../redux/dish/actions';
 import CloseIcon from '../CloseIcon/CloseIcon';
-import newId from '../../functions/newId/newId.ts';
+import newId from '../../functions/newId/newId';
 import sizeAnimation from './SizeAnimation.module.css';
 import pizzaAnimation from './PizzaAnimation.module.css';
 

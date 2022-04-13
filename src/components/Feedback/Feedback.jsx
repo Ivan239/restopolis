@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { getDatabase, ref, set } from 'firebase/database';
 import styles from './Feedback.module.css';
 import CloseIcon from '../CloseIcon/CloseIcon';
-import newId from '../../functions/newId/newId.ts';
+import newId from '../../functions/newId/newId';
 
 function Feedback(props) {
   const { handleCard } = props;

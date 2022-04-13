@@ -101,9 +101,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
-    extensions: ['.js', '.json', '.png', '.ts', '.tsx', '.jsx'],
+    extensions: ['.ts', '.jsx', '.tsx', '.js', '...'],
     alias: {
-      '@': path.resolve(__dirname),
+      '@src': path.resolve(__dirname, 'src'),
     },
   },
   optimization: optimization(),
