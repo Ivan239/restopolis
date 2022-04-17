@@ -4,9 +4,9 @@ import styles from './Main.module.css';
 import Cards from '../components/Cards/Cards';
 import loader from '../assets/loader.gif';
 
-async function dishes() {
+export async function dishes() {
   const dbRef = ref(getDatabase());
-  const getItem = (item) =>
+  const getItem = async (item) =>
     get(child(dbRef, `/${item}`))
       .then((snapshot) => {
         if (snapshot.exists()) {

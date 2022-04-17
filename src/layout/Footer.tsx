@@ -5,9 +5,9 @@ import Feedback from '../components/Feedback/Feedback';
 import animation from './FooterAnimation.module.css';
 
 function Footer() {
-  const [showFeedback, setShowFeedback] = useState(false);
+  const [showFeedback, setShowFeedback] = useState<boolean>(false);
 
-  const handleFeedback = () => {
+  const handleFeedback = (): void => {
     setShowFeedback(!showFeedback);
   };
 
