@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import store from '../../redux/store/store';
 import styles from './CartButton.module.css';
 
@@ -10,7 +10,7 @@ function CartButton() {
       store.subscribe(() => {
         setAmount(store.getState().cart.length);
       }),
-    []
+    [],
   );
 
   return (

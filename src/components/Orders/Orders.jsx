@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import store from '../../redux/store/store';
 import CartItems from '../CartItems/CartItems';
 import styles from './Orders.module.css';
@@ -10,7 +10,7 @@ function Orders() {
       store.subscribe(() => {
         setOrders(store.getState().account.orders);
       }),
-    []
+    [],
   );
   const newOrders = orders;
   let price = 0;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import store from '../../redux/store/store';
 import CartItems from '../CartItems/CartItems';
 import styles from './Cart.module.css';
@@ -10,7 +10,7 @@ function Cart() {
       store.subscribe(() => {
         setItems(store.getState().cart);
       }),
-    []
+    [],
   );
   const price = store.getState().cart.reduce((prev, current) => prev + current.price, 0);
   return (

@@ -1,22 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {toast} from 'react-toastify';
-import {CSSTransition} from 'react-transition-group';
+import { toast } from 'react-toastify';
+import { CSSTransition } from 'react-transition-group';
 import MenuButton from '../MenuButton/MenuButton';
 import styles from './BigCard.module.css';
 import Toppings from '../Toppings/Toppings';
-import {addDish} from '../../redux/cart/actions';
+import { addDish } from '../../redux/cart/actions';
 import store from '../../redux/store/store';
-import {addTopping, clearToppings, deleteTopping} from '../../redux/dish/actions';
+import { addTopping, clearToppings, deleteTopping } from '../../redux/dish/actions';
 import CloseIcon from '../CloseIcon/CloseIcon';
-import newId from '../newId';
+import newId from '../../functions/newId/newId';
 import sizeAnimation from './SizeAnimation.module.css';
 import pizzaAnimation from './PizzaAnimation.module.css';
 
 function BigCard(props) {
-  const {img, name, price, handleBigCard, description, toppings} = props;
+  const { img, name, price, handleBigCard, description, toppings } = props;
 
-  const propClosing = e => {
+  const propClosing = (e) => {
     e.stopPropagation();
   };
 
@@ -26,7 +26,7 @@ function BigCard(props) {
         id: 'Small',
         name: 'Small',
         price: 0,
-      })
+      }),
     );
     return false;
   });
@@ -47,7 +47,7 @@ function BigCard(props) {
         toppings: store.getState().dish,
         id: newId(),
         big,
-      })
+      }),
     );
     store.dispatch(clearToppings());
     setBig(false);
@@ -60,10 +60,10 @@ function BigCard(props) {
         const addPrice = store.getState().dish.reduce((prev, current) => prev + current.price, 0);
         setFullPrice(price + addPrice);
       }),
-    [price]
+    [price],
   );
 
-  const toggleSize = size => {
+  const toggleSize = (size) => {
     if (size !== big) {
       setBig(size);
       store.dispatch(
@@ -71,7 +71,7 @@ function BigCard(props) {
           id: !big ? 'Big' : 'Small',
           name: !big ? 'Big' : 'Small',
           price: !big ? 4 : 0,
-        })
+        }),
       );
       store.dispatch(deleteTopping(!big ? 'Small' : 'Big'));
     }
@@ -79,7 +79,7 @@ function BigCard(props) {
 
   return (
     <div className={styles['big-card']}>
-      <div role="button" tabIndex={0} className={styles.content} onClick={e => propClosing(e)}>
+      <div role="button" tabIndex={0} className={styles.content} onClick={(e) => propClosing(e)}>
         <CloseIcon handleCard={handleBigCard} />
         <div className={styles.left}>
           <div className={styles.size}>

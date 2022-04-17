@@ -2,6 +2,8 @@
 
 In developing. Demo of current version available on https://ivan239.github.io/restopolis/.
 
+Redux is using as state manager.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import HeaderButton from '../components/HeaderButton/HeaderButton';
 import CartButton from '../components/CartButton/CartButton';
@@ -17,16 +17,16 @@ function Header() {
         <h1>R e s t o p o l i s</h1>
       </NavLink>
       <div className={styles.buttons}>
-        {barButtons.map(elem =>
+        {barButtons.map((elem) =>
           elem === 'menu' ? (
-            <NavLink to="/" key={elem}>
+            <NavLink to="/" key={elem} className={styles.link}>
               <HeaderButton>{firstUpper(elem)}</HeaderButton>
             </NavLink>
           ) : (
-            <NavLink to={`/${elem}`} key={elem}>
+            <NavLink to={`/${elem}`} key={elem} className={styles.link}>
               <HeaderButton>{firstUpper(elem)}</HeaderButton>
             </NavLink>
-          )
+          ),
         )}
         <CartButton />
       </div>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ClosestBooking.module.css';
 import store from '../../redux/store/store';
 
@@ -25,13 +25,11 @@ function ClosestBooking() {
         }
         setBookings(newBookings);
       }),
-    []
+    [],
   );
   if (bookings) {
     for (const elem of bookings) {
-      // eslint-disable-line
       if (elem.Date.localeCompare(currentDate) > 0) {
-        // sonarcube recommended to write with for of
         nextBook = elem;
         break;
       }

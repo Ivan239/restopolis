@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {CSSTransition} from 'react-transition-group';
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import styles from './Footer.module.css';
 import Feedback from '../components/Feedback/Feedback';
 import animation from './FooterAnimation.module.css';

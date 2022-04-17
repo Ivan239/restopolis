@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import styles from './Topping.module.css';
 import animation from './ToppingAnimation.module.css';
 import store from '../../redux/store/store';
-import {addTopping, deleteTopping} from '../../redux/dish/actions';
+import { addTopping, deleteTopping } from '../../redux/dish/actions';
 
 function Topping(props) {
-  const {img, name, price, isSelected} = props;
+  const { img, name, price, isSelected } = props;
 
   const [chosenTopping, setChosenTopping] = useState(false);
 
@@ -19,7 +19,7 @@ function Topping(props) {
           id: name,
           name,
           price,
-        })
+        }),
       );
     } else {
       store.dispatch(deleteTopping(name));

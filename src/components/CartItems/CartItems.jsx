@@ -4,10 +4,10 @@ import CartItem from '../CartItem/CartItem';
 import styles from './CartItems.module.css';
 
 function CartItems(props) {
-  const {dishes, isDeletable} = props;
+  const { dishes, isDeletable } = props;
   return (
     <div className={styles['cart-items']}>
-      {dishes.map(elem => (
+      {dishes.map((elem) => (
         <CartItem
           key={elem.id}
           name={elem.name}

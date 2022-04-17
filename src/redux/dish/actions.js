@@ -1,11 +1,11 @@
-import {ADD_TOPPING, CLEAR_TOPPINGS, DELETE_TOPPING} from './types';
+import { ADD_TOPPING, CLEAR_TOPPINGS, DELETE_TOPPING } from './types';
 
-export const deleteTopping = toppingId => ({
+export const deleteTopping = (toppingId) => ({
   type: DELETE_TOPPING,
   payload: toppingId,
 });
 
-export const addTopping = newDish => ({
+export const addTopping = (newDish) => ({
   type: ADD_TOPPING,
   payload: newDish,
 });

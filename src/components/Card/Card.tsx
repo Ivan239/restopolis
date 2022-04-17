@@ -1,20 +1,25 @@
-import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import {CSSTransition} from 'react-transition-group';
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import styles from './Card.module.css';
 import BigCard from '../BigCard/BigCard';
 
 import MenuButton from '../MenuButton/MenuButton';
 import store from '../../redux/store/store';
-import {clearToppings} from '../../redux/dish/actions';
+import { clearToppings } from '../../redux/dish/actions';
 import animation from './BigCardAnimation.module.css';
+import { ToppingInt } from '../../interfaces';
 
-function Card(props) {
-  const {img, name, price, description, toppings} = props;
+type CardProps = {
+  img?: string;
+  name?: string;
+  price?: number;
+  description?: string;
+  toppings?: Array<ToppingInt>;
+};
 
-  const [showBigCard, setShowBigCard] = useState(false);
-
-  const handleBigCard = () => {
+function Card({ img, name, price, description, toppings }: CardProps) {
+  const [showBigCard, setShowBigCard] = useState<boolean>(false);
+  const handleBigCard = (): void => {
     setShowBigCard(!showBigCard);
     store.dispatch(clearToppings());
   };
@@ -46,14 +51,6 @@ function Card(props) {
     </div>
   );
 }
-
-Card.propTypes = {
-  img: PropTypes.string,
-  name: PropTypes.string,
-  price: PropTypes.number,
-  description: PropTypes.string,
-  toppings: PropTypes.arrayOf(PropTypes.object),
-};
 
 Card.defaultProps = {
   img: '',
