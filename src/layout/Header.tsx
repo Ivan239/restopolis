@@ -4,9 +4,9 @@ import styles from './Header.module.css';
 import HeaderButton from '../components/HeaderButton/HeaderButton';
 import CartButton from '../components/CartButton/CartButton';
 
-const barButtons = ['menu', 'order', 'book', 'profile'];
+const barButtons: Array<string> = ['menu', 'order', 'book', 'profile'];
 
-function firstUpper(string) {
+function firstUpper(string: string): string {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 

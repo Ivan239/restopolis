@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import MenuButton from '../MenuButton/MenuButton';
@@ -7,22 +6,27 @@ import styles from './Authorisation.module.css';
 import google from '../../assets/google.jpg';
 import back from '../../assets/back.png';
 
-function Authorisation(props) {
-  const { authorise, setAuthForm, authoriseGoogle } = props;
+type AuthProps = {
+  authorise: (email: string, password: string) => void;
+  setAuthForm: (authForm: boolean) => void;
+  authoriseGoogle: () => void;
+};
+
+function Authorisation({ authorise, setAuthForm, authoriseGoogle }: AuthProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const toastError = (field) => {
+  const toastError = (field: string): void => {
     toast.error(`${field} is required`, {
       autoClose: 2400,
     });
   };
-  const onSubmit = (data) => {
+  const onSubmit = (data: { [x: string]: string }): void => {
     authorise(data.Email, data.Password);
   };
-  const checkErrors = (errorList) => {
+  const checkErrors = (errorList: { [x: string]: string }): void => {
     if (errorList.Email) {
       toastError('E-mail');
     } else if (errorList.Password) {
@@ -70,11 +74,5 @@ function Authorisation(props) {
     </div>
   );
 }
-
-Authorisation.propTypes = {
-  authorise: PropTypes.func.isRequired,
-  setAuthForm: PropTypes.func.isRequired,
-  authoriseGoogle: PropTypes.func.isRequired,
-};
 
 export default Authorisation;
