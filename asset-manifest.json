@@ -10,8 +10,5 @@
     "main.bdd99cef.css.map": "/restopolis/static/css/main.bdd99cef.css.map",
     "main.ab1c9b86.js.map": "/restopolis/static/js/main.ab1c9b86.js.map"
   },
-  "entrypoints": [
-    "static/css/main.bdd99cef.css",
-    "static/js/main.ab1c9b86.js"
-  ]
+  "entrypoints": ["static/css/main.bdd99cef.css", "static/js/main.ab1c9b86.js"]
 }
